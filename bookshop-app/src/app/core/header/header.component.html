@@ -1,1 +1,18 @@
-<p>header works!</p>
+<header>
+    <div>
+        <a routerLink="/"> Home</a>
+    </div>
+    <nav>
+        <ul *ngIf="isLoggedIn">
+            <li>Logout</li>
+            <li>All Books</li>
+        </ul>
+
+        <ul *ngIf="!isLoggedIn">
+            <li>Login</li>
+            <li>
+                <a routerLink="/register" routerLinkActive="active">Register</a>
+            </li>
+        </ul>
+    </nav>
+</header>
