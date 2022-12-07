@@ -9,9 +9,11 @@
         </ul>
 
         <ul *ngIf="!isLoggedIn">
-            <li>Login</li>
             <li>
-                <a routerLink="/register" routerLinkActive="active">Register</a>
+                <a routerLink="/login">Login</a>
+            </li>
+            <li>
+                <a routerLink="/register">Register</a>
             </li>
         </ul>
     </nav>

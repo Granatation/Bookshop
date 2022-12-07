@@ -1,0 +1,97 @@
+form {
+    width: 500px;
+    color: black;
+    position: absolute;
+    right: 50%;
+    transform: translate(50%);
+    margin: 8rem 0;
+}
+
+fieldset {
+    background-color: rgba(255, 255, 255, .5);
+    border: none;
+    border-radius: 10px;
+}
+
+fieldset::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(-6deg);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+h2 {
+    margin: 2rem 0 1rem 0;
+    text-align: center;
+}
+
+.icon {
+    margin: 0;
+    position: relative;
+    height: 0;
+    width: 20px;
+    top: 14px;
+    left: 60px;
+    font-size: 1.3rem;
+    opacity: .4;
+}
+
+div {
+    margin-top: 3rem;
+}
+
+
+input {
+    border: none;
+    outline: none;
+    color: black;
+    background: rgba(255, 255, 255, .3);
+    font-size: 1rem;
+    padding: 1rem 0 1rem 4rem;
+    margin: 0 0 0 2rem;
+    border-radius: 100px;
+    width: 70%;
+    transition: background-color .5s;
+}
+
+button {
+    background: black;
+    color: white;
+    width: 84%;
+    margin: 3rem 0 0 2rem;
+    padding: 1rem;
+    border-radius: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.5s;
+}
+
+.error {
+    font-size: 20px;
+    color: rgb(255, 0, 0);
+    margin: 10px 0 0 4rem;
+}
+
+.error+div,
+.error+button {
+    margin-top: 15px;
+}
+
+button:hover:enabled {
+    cursor: pointer;
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+input:focus{
+    background-color: white;
+}
+
+.question{
+    text-align: center;
+    margin:2rem 0 1.2rem 0;
+}

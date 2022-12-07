@@ -1,1 +1,58 @@
-<p>login works!</p>
+<form [formGroup]="loginForm" method="post" (ngSubmit)="registerHandler()">
+
+    <fieldset>
+        <h2>Login</h2>
+
+        <div>
+            <p class="icon"><i class="fa-regular fa-user"></i></p>
+            <input type="text" formControlName="username" id="username" placeholder="Enter Username">
+        </div>
+
+
+        <ng-container *ngIf="loginForm.get('username')?.touched">
+            <p *ngIf="loginForm.get('username')?.errors?.['required']" class="error">
+                Username is required!
+            </p>
+            <p *ngIf="loginForm.get('username')?.errors?.['minlength']" class="error">
+                Should be longer than 3 characters!
+            </p>
+        </ng-container>
+
+        <div>
+            <p class="icon"><i class="fa-regular fa-envelope"></i></p>
+            <input type="email" formControlName="email" id="email" placeholder="Enter Email">
+        </div>
+
+
+        <ng-container *ngIf="loginForm.get('email')?.touched">
+            <p class="error" *ngIf="loginForm.get('email')?.errors?.['required']">
+                Email is required!
+            </p>
+            <p class="error" *ngIf="loginForm.get('email')?.errors?.['appEmailValidator']">
+                Email is not valid!
+            </p>
+        </ng-container>
+
+        <div>
+            <p class="icon"><i class="fa-solid fa-lock"></i></p>
+            <input type="password" formControlName="password" id="password" placeholder="Enter Password">
+        </div>
+
+        <ng-container *ngIf="loginForm.get('password')?.touched">
+            <p class="error" *ngIf="loginForm.get('password')?.errors?.['required']">
+                Password is required!
+            </p>
+            <p class="error" *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                Password must be at least 6 characters!
+            </p>
+        </ng-container>
+
+        <button [disabled]="loginForm.invalid">Login</button>
+
+        <p class="question">
+            You don't have an account?
+            <a routerLink="/register">Register</a>
+        </p>
+
+    </fieldset>
+</form>
