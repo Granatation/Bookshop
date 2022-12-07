@@ -1,66 +1,70 @@
-<form formGroup="form" class="register">
+<form [formGroup]="registerForm" method="post" (ngSubmit)="registerHandler()">
 
     <fieldset>
-        <h2>Registration Form</h2>
+        <h2>Register</h2>
 
         <div>
-            <label for="username">Username</label>
-            <input type="text" formControlName="username" id="username" placeholder="Steven">
+            <p class="icon"><i class="fa-regular fa-user"></i></p>
+            <input type="text" formControlName="username" id="username" placeholder="Enter Username">
         </div>
 
-        <ng-container *ngIf="form.get('username')?.touched">
-            <p *ngIf="form.get('username')?.errors?.['required']" class="error">
+
+        <ng-container *ngIf="registerForm.get('username')?.touched">
+            <p *ngIf="registerForm.get('username')?.errors?.['required']" class="error">
                 Username is required!
             </p>
-            <p *ngIf="form.get('username')?.errors?.['minlength']" class="error">
-                Username should be longer than 3 characters!
+            <p *ngIf="registerForm.get('username')?.errors?.['minlength']" class="error">
+                Should be longer than 3 characters!
             </p>
         </ng-container>
 
         <div>
-            <label for="email">Email</label>
-            <input type="email" formControlName="email" id="email" placeholder="email@gmail.com">
+            <p class="icon"><i class="fa-regular fa-envelope"></i></p>
+            <input type="email" formControlName="email" id="email" placeholder="Enter Email">
         </div>
-       
-        <ng-container *ngIf="form.get('email')?.touched">
-            <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+
+
+        <ng-container *ngIf="registerForm.get('email')?.touched">
+            <p class="error" *ngIf="registerForm.get('email')?.errors?.['required']">
                 Email is required!
             </p>
-            <p class="error" *ngIf="form.get('email')?.errors?.['appEmailValidator']">
+            <p class="error" *ngIf="registerForm.get('email')?.errors?.['appEmailValidator']">
                 Email is not valid!
             </p>
         </ng-container>
 
         <ng-container formGroupName="pass">
+
             <div>
-                <label for="password">Password</label>
-                <input type="password" formControlName="password" id="password" placeholder="******">
+                <p class="icon"><i class="fa-solid fa-lock"></i></p>
+                <input type="password" formControlName="password" id="password" placeholder="Enter Password">
             </div>
-                
-            <ng-container *ngIf="form.get('pass')?.get('password')?.touched">
-                <p class="error" *ngIf="form.get('pass')?.get('password')?.errors?.['required']">
+
+            <ng-container *ngIf="registerForm.get('pass')?.get('password')?.touched">
+                <p class="error" *ngIf="registerForm.get('pass')?.get('password')?.errors?.['required']">
                     Password is required!
                 </p>
-                <p class="error" *ngIf="form.get('pass')?.get('password')?.errors?.['minlength']">
+                <p class="error" *ngIf="registerForm.get('pass')?.get('password')?.errors?.['minlength']">
                     Password must be at least 6 characters!
                 </p>
             </ng-container>
 
             <div>
-                <label for="rePassword">Repeat password</label>
-                <input type="password" formControlName="rePassword" id="rePassword" placeholder="******">
+                <p class="icon"><i class="fa-solid fa-lock"></i></p>
+                <input type="password" formControlName="rePassword" id="rePassword" placeholder="Repeat Password">
             </div>
-            
-            <p *ngIf="form.get('pass')?.errors?.['sameValueGroupValidator'] 
-            && form.get('pass')?.get('rePassword')?.touched" class="error">
-            Repeat password does not match password!
+
+
+            <p *ngIf="registerForm.get('pass')?.errors?.['sameValueGroupValidator'] 
+            && registerForm.get('pass')?.get('rePassword')?.touched" class="error">
+                Password missmatch!
             </p>
         </ng-container>
-        <button [disabled]="form.invalid">Create Account</button>
+        <button [disabled]="registerForm.invalid">Create Account</button>
 
-        <p class="text-center">
-            Have an account?
-            <a routerLink="/auth/login">Log In</a>
+        <p class="question">
+            Already have an account?
+            <a routerLink="/login">Log In</a>
         </p>
 
     </fieldset>
