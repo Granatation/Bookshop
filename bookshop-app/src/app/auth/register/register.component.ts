@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { appEmailValidator, sameValueGroupValidator } from 'src/app/shared/validators';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -22,12 +23,17 @@ export class RegisterComponent {
     })
   });
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder,private authService: AuthService, private router: Router) {
 
   }
 
   registerHandler() {
-    this.router.navigate(['/']);
+    if (this.registerForm.invalid) { return; }
+    const { username, email, pass: { password, rePassword } = {}} = this.registerForm.value;
+    this.authService.register(username!, email!, password!, rePassword!)
+      .subscribe(user => {
+        this.router.navigate(['/']);
+      });
   }
 
 }
