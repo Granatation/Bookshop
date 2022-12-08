@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { IError } from 'src/app/shared/interfaces/IError';
 import { appEmailValidator, sameValueGroupValidator } from 'src/app/shared/validators';
 import { AuthService } from '../auth.service';
 
@@ -23,15 +24,21 @@ export class RegisterComponent {
     })
   });
 
-  constructor(private fb: FormBuilder,private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
 
   }
 
   registerHandler() {
     if (this.registerForm.invalid) { return; }
-    const { username, email, pass: { password, rePassword } = {}} = this.registerForm.value;
+    const { username, email, pass: { password, rePassword } = {} } = this.registerForm.value;
     this.authService.register(username!, email!, password!, rePassword!)
       .subscribe(user => {
+        let error = user as any as IError;
+        
+        if (error.message) {
+          return;
+        }
+
         this.router.navigate(['/']);
       });
   }

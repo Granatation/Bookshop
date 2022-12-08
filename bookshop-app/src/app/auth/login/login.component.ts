@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { appEmailValidator, sameValueGroupValidator } from 'src/app/shared/validators';
+import { IError } from 'src/app/shared/interfaces/IError';
+import { appEmailValidator } from 'src/app/shared/validators';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,16 +13,26 @@ import { appEmailValidator, sameValueGroupValidator } from 'src/app/shared/valid
 })
 export class LoginComponent {
   loginForm = this.fb.group({
-    username: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, appEmailValidator]],
     password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
 
   }
 
-  registerHandler() {
-    this.router.navigate(['/']);
+  loginHandler() {
+    if (this.loginForm.invalid) { return; }
+    const { email, password } = this.loginForm.value;
+    this.authService.login(email!, password!)
+      .subscribe(user => {
+        let error = user as any as IError;
+        
+        if (error.message) {
+          return;
+        }
+
+        this.router.navigate(['/']);
+      });
   }
 }

@@ -1,22 +1,7 @@
-<form [formGroup]="loginForm" method="post" (ngSubmit)="registerHandler()">
+<form [formGroup]="loginForm" method="post" (ngSubmit)="loginHandler()">
 
     <fieldset>
         <h2>Login</h2>
-
-        <div>
-            <p class="icon"><i class="fa-regular fa-user"></i></p>
-            <input type="text" formControlName="username" id="username" placeholder="Enter Username">
-        </div>
-
-
-        <ng-container *ngIf="loginForm.get('username')?.touched">
-            <p *ngIf="loginForm.get('username')?.errors?.['required']" class="error">
-                Username is required!
-            </p>
-            <p *ngIf="loginForm.get('username')?.errors?.['minlength']" class="error">
-                Should be longer than 3 characters!
-            </p>
-        </ng-container>
 
         <div>
             <p class="icon"><i class="fa-regular fa-envelope"></i></p>

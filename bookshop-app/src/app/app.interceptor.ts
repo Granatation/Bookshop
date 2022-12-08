@@ -9,13 +9,7 @@ export class AppInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (this.accessToken) {
-            req = req.clone({
-                headers: new HttpHeaders({
-                    'X-Authorization': this.accessToken,
-                    'Content-Type': 'application/json'
-
-                })
-            });
+            return next.handle(req.clone({ setHeaders: { 'X-Authorization': this.accessToken }, withCredentials: true }));
         }
 
         return next.handle(req);

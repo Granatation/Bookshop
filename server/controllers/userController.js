@@ -53,7 +53,6 @@ router.post('/register', async (req, res) => {
         const createdUser = await authService.create({ username, email, password, accessToken });
         errorChecker(createdUser);
 
-        res.cookie(authCookieName, accessToken, { httpOnly: true })
         res.json(createdUser);
     } catch (error) {
         console.log(error);
