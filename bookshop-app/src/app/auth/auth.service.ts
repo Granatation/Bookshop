@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { tap } from 'rxjs'
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { IUser } from '../shared/interfaces/IUser';
@@ -25,10 +25,10 @@ export class AuthService {
       .pipe(tap(user => {
         this.user = user as any as IError;
         if (this.user.message) {
-          alert(this.user.message)
+          alert(this.user.message);
         } else {
-          this.user = user as any
-          localStorage.setItem('user', this.user.accessToken)
+          this.user = user as any;
+          localStorage.setItem('user', this.user.accessToken);
         }
       })
       );
@@ -39,12 +39,17 @@ export class AuthService {
       .pipe(tap(user => {
         this.user = user as any as IError;
         if (this.user.message) {
-          alert(this.user.message)
-          
+          alert(this.user.message);
         } else {
-          this.user = user as any
-          localStorage.setItem('user', this.user.accessToken)
+          this.user = user as any;
+          localStorage.setItem('user', this.user.accessToken);
         }
       }));
+  }
+
+  logout() {
+    if (localStorage.getItem('user')) {
+      localStorage.removeItem('user');
+    }
   }
 }
