@@ -1,0 +1,92 @@
+<form [formGroup]="addBookForm" method="post" (ngSubmit)="addBookHandler()">
+
+    <fieldset>
+        <h2>Add Book</h2>
+
+        <div>
+            <p class="icon"><i class="fa-solid fa-book"></i></p>
+            <input type="text" formControlName="title" placeholder="Enter Title">
+        </div>
+
+
+        <ng-container *ngIf="addBookForm.get('title')?.touched">
+            <p *ngIf="addBookForm.get('title')?.errors?.['required']" class="error">
+                Title is required!
+            </p>
+            <p *ngIf="addBookForm.get('title')?.errors?.['minlength']" class="error">
+                Should be at least than 2 characters!
+            </p>
+            <p *ngIf="addBookForm.get('title')?.errors?.['maxLength']" class="error">
+                Should not be more than 15 characters!
+            </p>
+        </ng-container>
+
+        <div>
+            <p class="icon"><i class="fa-solid fa-pen-nib"></i></p>
+            <input type="author" formControlName="author" placeholder="Enter Author">
+        </div>
+
+        <ng-container *ngIf="addBookForm.get('author')?.touched">
+            <p class="error" *ngIf="addBookForm.get('author')?.errors?.['required']">
+                Author is required!
+            </p>
+            <p *ngIf="addBookForm.get('author')?.errors?.['minlength']" class="error">
+                Should be at least than 2 characters!
+            </p>
+            <p *ngIf="addBookForm.get('author')?.errors?.['maxLength']" class="error">
+                Should not be more than 15 characters!
+            </p>
+        </ng-container>
+
+
+
+        <div>
+            <p class="icon"><i class="fa-solid fa-book"></i></p>
+            <input type="publisher" formControlName="publisher" placeholder="Enter Publisher">
+        </div>
+
+        <ng-container *ngIf="addBookForm.get('publisher')?.touched">
+            <p class="error" *ngIf="addBookForm.get('publisher')?.errors?.['required']">
+                Publisher is required!
+            </p>
+            <p *ngIf="addBookForm.get('publisher')?.errors?.['minlength']" class="error">
+                Should be at least than 2 characters!
+            </p>
+            <p *ngIf="addBookForm.get('publisher')?.errors?.['maxLength']" class="error">
+                Should not be more than 15 characters!
+            </p>
+        </ng-container>
+
+        <div>
+            <p class="icon"><i class="fa-solid fa-dollar-sign"></i></p>
+            <input type="number" formControlName="price" placeholder="Enter Price">
+        </div>
+
+        <ng-container *ngIf="addBookForm.get('price')?.touched">
+            <p *ngIf="addBookForm.get('price')?.errors?.['min']" class="error">
+                Price is required!
+            </p>
+            <p *ngIf="addBookForm.get('price')?.errors?.['max']" class="error">
+                Should cost less than 10 000$!
+            </p>
+        </ng-container>
+
+        <div>
+            <p class="icon"><i class="fa-solid fa-quote-left"></i></p>
+            <textarea id="description" type="text" formControlName="description"
+                placeholder="Enter Description"></textarea>
+        </div>
+
+        <ng-container *ngIf="addBookForm.get('description')?.touched">
+            <p *ngIf="addBookForm.get('description')?.errors?.['minLength']" class="error">
+                Should be at least 50 characters!
+            </p>
+            <p *ngIf="addBookForm.get('description')?.errors?.['maxLength']" class="error">
+                Should not be more than 350 characters!
+            </p>
+        </ng-container>
+
+        <button [disabled]="addBookForm.invalid">Add Book</button>
+
+    </fieldset>
+</form>

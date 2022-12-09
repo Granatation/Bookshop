@@ -4,10 +4,13 @@
     </div>
     <nav>
         <ul *ngIf="isLoggedIn">
+            <li>All Books</li>
+            <li>
+                <a routerLink="/add-book">Add Book</a>
+            </li>
             <li>
                 <a routerLink="/logout">Logout</a>
             </li>
-            <li>All Books</li>
         </ul>
 
         <ul *ngIf="!isLoggedIn">
