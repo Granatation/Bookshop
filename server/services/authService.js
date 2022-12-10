@@ -23,7 +23,7 @@ exports.login = async (email, password) => {
         if (!isValid) {
             throw new Error('Cannot find email or password')
         }
-        
+
         return user;
     } catch (error) {
         return error
@@ -33,7 +33,6 @@ exports.login = async (email, password) => {
 exports.createToken = (email) => {
     try {
         const payload = { email };
-
         return new Promise((resolve, reject) => {
             jwt.sign(payload, SECRET, (err, decodedToken) => {
                 if (err) {
@@ -41,24 +40,25 @@ exports.createToken = (email) => {
                 }
                 resolve(decodedToken);
             })
-
         });
     } catch (error) {
-        return error
+        return error;
     }
 }
 
 exports.getUser = async (req) => {
     try {
+        console.log('in')
         const token = req.headers['x-authorization'];
-        var decoded = jwt.verify(token, SECRET);
+        console.log(token);
+        const decoded = jwt.verify(token, SECRET);
         const email = decoded.email;
         const user = await User.findOne({ email }).lean();
 
-        if(user.message){
+        if (user.message) {
             throw user
         }
-        
+
         return user;
     } catch (error) {
         return error;

@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AddBookComponent } from './add-book/add-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     AddBookComponent,
@@ -12,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class BookModule { }

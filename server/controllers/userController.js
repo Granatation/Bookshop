@@ -50,7 +50,7 @@ router.post('/register', async (req, res) => {
         const accessToken = await authService.createToken(email);
         errorChecker(accessToken);
 
-        const createdUser = await authService.create({ username, email, password, accessToken });
+        const createdUser = await authService.create({ username, email, password, accessToken, books:[] });
         errorChecker(createdUser);
 
         res.json(createdUser);

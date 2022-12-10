@@ -57,6 +57,12 @@ input {
     transition: background-color .5s;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 #description {
     border: none;
     outline: none;
@@ -69,6 +75,7 @@ input {
     width: 70%;
     height: 18px;
     border-radius: 100px;
+    overflow: hidden;
     transition: background-color, height .5s;
 }
 

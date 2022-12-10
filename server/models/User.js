@@ -17,16 +17,15 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Password required']
     },
     accessToken: {
-        type:String
-    }
-    // ,
-    // landmarks:[{
-    //     type: mongoose.Types.ObjectId,
-    //     ref: 'Landmark'
-    // }]
+        type: String
+    },
+    books: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Book'
+    }]
 });
 
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
     bcrypt.hash(this.password, SALT_ROUNDS)
         .then(hashedPass => {
             this.password = hashedPass;

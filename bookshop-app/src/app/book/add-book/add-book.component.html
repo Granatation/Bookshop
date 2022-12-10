@@ -59,7 +59,7 @@
 
         <div>
             <p class="icon"><i class="fa-solid fa-dollar-sign"></i></p>
-            <input type="number" formControlName="price" placeholder="Enter Price">
+            <input type="number" formControlName="price">
         </div>
 
         <ng-container *ngIf="addBookForm.get('price')?.touched">
@@ -68,6 +68,17 @@
             </p>
             <p *ngIf="addBookForm.get('price')?.errors?.['max']" class="error">
                 Should cost less than 10 000$!
+            </p>
+        </ng-container>
+
+        <div>
+            <p class="icon"><i class="fa-solid fa-image"></i></p>
+            <input type="text" formControlName="imageUrl" placeholder="Enter Image URL">
+        </div>
+
+        <ng-container *ngIf="addBookForm.get('imageUrl')?.touched">
+            <p *ngIf="addBookForm.get('imageUrl')?.errors?.['required']" class="error">
+                Image URL is required!
             </p>
         </ng-container>
 

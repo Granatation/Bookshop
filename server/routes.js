@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
-// const landmarkController = require('./controllers/landmarkController');
+const bookController = require('./controllers/bookController');
 const userController = require('./controllers/userController');
 
+router.use(bookController);
 router.use(userController);
-// router.use(landmarkController);
 
 module.exports = router;

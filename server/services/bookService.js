@@ -1,11 +1,11 @@
-// const Landmark = require('../models/Landmark');
+const Book = require('../models/Book');
 
-// exports.create = (landmarkData) => Landmark.create(landmarkData);
+exports.create = (bookData) => Book.create(bookData);
 
-// exports.getAll = () => Landmark.find().lean();
+exports.getAll = () => Book.find().lean();
 
-// exports.getOne = (landmarkId) => Landmark.findById(landmarkId).lean();
+exports.getOne = (bookId) => Book.findById(bookId).lean();
 
-// exports.update = (landmarkId, landmarkData) => Landmark.updateOne({ _id: landmarkId }, { $set: landmarkData });
+exports.update = (bookId, bookData) => Book.updateOne({ _id: bookId }, { $set: bookData });
 
-// exports.del = (landmarkId) => Landmark.deleteOne({ _id: landmarkId });
+exports.del = (bookId) => Book.deleteOne({ _id: bookId });

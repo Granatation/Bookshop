@@ -5,6 +5,7 @@ export interface IBook {
     author: string;
     publisher: string;
     price: number;
+    imageUrl: string;
     description: string;
     postCreator: IUser;
 }

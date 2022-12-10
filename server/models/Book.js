@@ -1,37 +1,37 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-// const landmarkSchema = new mongoose.Schema({
-//     name: {
-//         type: String,
-//         required: [true, 'Name required'],
-//     },
-//     town: {
-//         type: String,
-//         required: [true, 'Town/City required']
-//     },
-//     country: {
-//         type: String,
-//         required: [true, 'Country required']
-//     },
-//     imageUrl: {
-//         type: String,
-//         required: [true, 'Image URL required']
-//     },
-//     description: {
-//         type: String,
-//         required: [true, 'Description required']
-//     },
-//     visitors:[{
-//         type: mongoose.Types.ObjectId,
-//         ref: 'User'
-//     }],
-//     postedBy: {
-//         type: mongoose.Types.ObjectId,
-//         ref: 'User'
-//     }
+const bookSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: [true, 'Title required'],
+    },
+    author: {
+        type: String,
+        required: [true, 'Author required']
+    },
+    publisher: {
+        type: String,
+        required: [true, 'Publisher required']
+    },
+    price: {
+        type: Number,
+        required: [true, 'Price required']
+    },
+    imageUrl: {
+        type: String,
+        required: [true, 'Image URL required']
+    },
+    description: {
+        type: String,
+        required: [true, 'Description required']
+    },
+    postCreator: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+    }
     
-// });
+});
 
-// const Landmark = mongoose.model('Landmark', landmarkSchema);
+const Book = mongoose.model('Book', bookSchema);
 
-// module.exports = Landmark;
+module.exports = Book;

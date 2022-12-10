@@ -1,59 +1,52 @@
-// const router = require('express').Router();
+const router = require('express').Router();
 
-// const landmarkService = require('../services/landmarkService');
-// const authService = require('../services/authService');
-// const Landmark = require('../models/Landmark')
-// const errorChecker = require('../utils/errorChecker')
+const bookService = require('../services/bookService');
+const authService = require('../services/authService');
+// const Book = require('../models/Book');
+const errorChecker = require('../utils/errorChecker');
 
-// router.post('/add-landmark', async (req, res) => {
-//     try {
-//         const { name, town, country, imageUrl, description } = req.body;
+router.post('/add-book', async (req, res) => {
+    try {
+        const { title, author, publisher, price, imageUrl, description } = req.body;
 
-//         if (name == '' || town == '' || country == '' || imageUrl == '' || description == '') {
-//             throw new Error('Empty fields!')
-//         }
+        if (title == '' || author == '' || publisher == '' || price == '' || imageUrl == '' || description == '') {
+            throw new Error('Empty fields!')
+        }
 
-//         const existingLandmark = await Landmark.findOne({ name });
-//         errorChecker(existingLandmark);
+        const user = await authService.getUser(req);
+        errorChecker(user);
 
-//         if (existingLandmark) {
-//             throw new Error('This landmark is already posted!');
-//         }
+        const result = await bookService.create({ title, author, publisher, price, imageUrl, description, postCreator: user._id });
+        errorChecker(result);
 
-//         const user = await authService.getUser(req);
-//         errorChecker(user);
+        const bookArr = [...user.books, result._id];
 
-//         const result = await landmarkService.create({ name, town, country, imageUrl, description, postedBy: user._id });
-//         errorChecker(result);
+        const updatedUser = await authService.update(user._id, {
+            _id: user._id,
+            username: user.username,
+            accessToken: user.accessToken,
+            email: user.email,
+            password: user.password,
+            books: bookArr
+        });
+        errorChecker(updatedUser);
 
-//         const landmarkArr = [...user.landmarks, result._id];
+        res.json(result);
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+});
 
-//         const updatedUser = await authService.update(user._id, {
-//             _id: user._id,
-//             username: user.username,
-//             accessToken: user.accessToken,
-//             email: user.email,
-//             password: user.password,
-//             landmarks: landmarkArr
-//         });
-//         errorChecker(updatedUser);
+router.get('/all-books', async (req, res) => {
+    try {
+        const books = await bookService.getAll();
+        errorChecker(books);
 
-//         res.json(result);
-//     } catch (error) {
-//         res.json({ message: error.message });
-//     }
-// });
-
-// router.get('/all-landmarks', async (req, res) => {
-//     try {
-//         const landmarks = await landmarkService.getAll();
-//         errorChecker(landmarks);
-
-//         res.json(landmarks);
-//     } catch (error) {
-//         res.json({ message: error.message });
-//     }
-// });
+        res.json(books);
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+});
 
 // router.get('/all-landmarks/:landmarkId', async (req, res) => {
 //     try {
@@ -153,4 +146,4 @@
 //     }
 // });
 
-// module.exports = router;
+module.exports = router;
