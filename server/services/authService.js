@@ -48,9 +48,7 @@ exports.createToken = (email) => {
 
 exports.getUser = async (req) => {
     try {
-        console.log('in')
         const token = req.headers['x-authorization'];
-        console.log(token);
         const decoded = jwt.verify(token, SECRET);
         const email = decoded.email;
         const user = await User.findOne({ email }).lean();

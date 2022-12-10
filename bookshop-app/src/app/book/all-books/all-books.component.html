@@ -1,0 +1,15 @@
+<div class="all-books-container">
+    <div *ngFor="let book of allBooks" class="detail-container">
+        <div class="before-container">
+            <div className="imageContainer">
+                <img src={{book.imageUrl}} />
+            </div>
+            <div class="book">
+                <h2>{{book.title}}</h2>
+                <h6>{{book.author}} <br />{{book.publisher}}</h6>
+            </div>
+        </div>
+
+    </div>
+
+</div>

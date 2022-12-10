@@ -4,7 +4,9 @@
     </div>
     <nav>
         <ul *ngIf="isLoggedIn">
-            <li>All Books</li>
+            <li>
+                <a routerLink="/all-books">All Books</a>
+            </li>
             <li>
                 <a routerLink="/add-book">Add Book</a>
             </li>

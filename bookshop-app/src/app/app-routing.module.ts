@@ -5,6 +5,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
+import { AllBooksComponent } from './book/all-books/all-books.component';
 import { HomeComponent } from './core/home/home.component';
 
 const routes: Routes = [
@@ -28,7 +29,12 @@ const routes: Routes = [
   {
     path: 'add-book',
     component: AddBookComponent
+  },
+  {
+    path: 'all-books',
+    component: AllBooksComponent
   }
+
 ];
 
 @NgModule({

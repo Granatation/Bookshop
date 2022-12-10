@@ -40,6 +40,7 @@ router.post('/add-book', async (req, res) => {
 router.get('/all-books', async (req, res) => {
     try {
         const books = await bookService.getAll();
+        console.log(books);
         errorChecker(books);
 
         res.json(books);
