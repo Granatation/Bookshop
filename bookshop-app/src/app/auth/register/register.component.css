@@ -48,6 +48,8 @@ input {
     border: none;
     outline: none;
     color: black;
+    font-family: Bitter;
+
     background: rgba(255, 255, 255, .3);
     font-size: 1rem;
     padding: 1rem 0 1rem 4rem;
@@ -58,6 +60,7 @@ input {
 }
 
 button {
+    font-family: Bitter;
     background: black;
     color: white;
     width: 84%;
@@ -71,14 +74,15 @@ button {
 }
 
 .error {
-    font-size: 20px;
-    color: rgb(255, 0, 0);
+    font-size: 18px;
+    color: rgb(200, 0, 0);
+    font-style: italic;
     margin: 10px 0 0 4rem;
 }
 
 .error+div,
 .error+button {
-    margin-top: 15px;
+    margin-top: 1rem;
 }
 
 button:hover:enabled {

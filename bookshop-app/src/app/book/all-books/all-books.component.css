@@ -1,29 +1,38 @@
 .all-books-container {
-    width: 80%;
+    width: 1038px;
     position: absolute;
     right: 50%;
-    margin-top: 8rem;
+    margin-top: 4rem;
     transform: translate(50%);
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 20px;
+
+}
+
+h1{
+    text-align: center;
+    margin: 2rem 0 0 0;
+    color: black;
 }
 
 .detail-container {
     display: inline-block;
     margin: 3rem;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 400px;
     background-color: rgba(255, 255, 255, .5);
     border: none;
     border-radius: 10px;
 }
 
-.before-container{
+.before-container {
     position: absolute;
 }
 
 .before-container::before {
     content: '';
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 400px;
     position: absolute;
     inset: 0;
     background: rgba(255, 255, 255, 0.15);
@@ -32,16 +41,74 @@
     z-index: -1;
 }
 
-img {
-    width: 300px;
-    height: 300px;
-    border-radius: 10px;
-    opacity: 0.3;
+.imageContainer {
+    width: 250px;
+    height: 200px;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
 }
 
-.book{
-    z-index: 1;
-    position: absolute;
+img {
+    margin: auto;
+    object-fit: fill;
+    max-width: 250px;
+    max-height: 200px;
+}
+
+.book {
     color: black;
-    top: 20%;
+}
+
+h3 {
+    margin: 1rem 0 0 0;
+    text-align: center;
+}
+
+h6 {
+    text-align: center;
+    margin: 0;
+}
+
+h5 {
+    text-align: center;
+    margin: 1rem 0 0 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    background: black;
+    color: white;
+    font-size: 1rem;
+    width: 40%;
+    font-family: Bitter;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.5s;
+}
+
+a:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+@media only screen and (width<1038px) {
+    .all-books-container {
+        width:692px;
+    }
+}
+
+@media only screen and (width<692px) {
+    .all-books-container {
+        width:346px;
+    }
 }

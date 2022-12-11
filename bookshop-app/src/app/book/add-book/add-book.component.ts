@@ -15,7 +15,7 @@ export class AddBookComponent {
   addBookForm = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
     author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
-    publisher: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
+    language: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
     price: [0, [Validators.required, Validators.min(1), Validators.max(9999)]],
     imageUrl: ['', [Validators.required]],
     description: ['', [Validators.required, Validators.minLength(50), Validators.maxLength(1000)]],
@@ -27,8 +27,8 @@ export class AddBookComponent {
 
   addBookHandler() {
     if (this.addBookForm.invalid) { return; }
-    const { title, author, publisher, price, imageUrl, description } = this.addBookForm.value;
-    this.bookService.addBook(title!, author!, publisher!, price!, imageUrl!, description!)
+    const { title, author, language, price, imageUrl, description } = this.addBookForm.value;
+    this.bookService.addBook(title!, author!, language!, price!, imageUrl!, description!)
       .subscribe(book => {
         let error = book as any as IError;
 

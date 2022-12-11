@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter');
+
 body{
     margin:0;
     font-size: 20px;
     color: white;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Bitter;
     background: linear-gradient(to right, rgba(51, 51, 153, 0.7), rgba(255, 0, 204, 0.5));
 
 }

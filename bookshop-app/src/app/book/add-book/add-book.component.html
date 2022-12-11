@@ -42,17 +42,17 @@
 
         <div>
             <p class="icon"><i class="fa-solid fa-book"></i></p>
-            <input type="publisher" formControlName="publisher" placeholder="Enter Publisher">
+            <input type="language" formControlName="language" placeholder="Enter Language">
         </div>
 
-        <ng-container *ngIf="addBookForm.get('publisher')?.touched">
-            <p class="error" *ngIf="addBookForm.get('publisher')?.errors?.['required']">
-                Publisher is required!
+        <ng-container *ngIf="addBookForm.get('language')?.touched">
+            <p class="error" *ngIf="addBookForm.get('language')?.errors?.['required']">
+                Language is required!
             </p>
-            <p *ngIf="addBookForm.get('publisher')?.errors?.['minlength']" class="error">
+            <p *ngIf="addBookForm.get('language')?.errors?.['minlength']" class="error">
                 Should be at least than 2 characters!
             </p>
-            <p *ngIf="addBookForm.get('publisher')?.errors?.['maxLength']" class="error">
+            <p *ngIf="addBookForm.get('language')?.errors?.['maxLength']" class="error">
                 Should not be more than 15 characters!
             </p>
         </ng-container>

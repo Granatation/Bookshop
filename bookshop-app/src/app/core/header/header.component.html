@@ -3,6 +3,7 @@
         <a routerLink="/"> Home</a>
     </div>
     <nav>
+
         <ul *ngIf="isLoggedIn">
             <li>
                 <a routerLink="/all-books">All Books</a>
@@ -16,6 +17,9 @@
         </ul>
 
         <ul *ngIf="!isLoggedIn">
+            <li>
+                <a routerLink="/all-books">All Books</a>
+            </li>
             <li>
                 <a routerLink="/login">Login</a>
             </li>

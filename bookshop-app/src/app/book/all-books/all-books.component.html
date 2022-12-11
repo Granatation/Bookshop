@@ -1,15 +1,18 @@
 <div class="all-books-container">
+    <h1>All books</h1>
     <div *ngFor="let book of allBooks" class="detail-container">
         <div class="before-container">
-            <div className="imageContainer">
+            <div class="imageContainer">
                 <img src={{book.imageUrl}} />
             </div>
             <div class="book">
-                <h2>{{book.title}}</h2>
-                <h6>{{book.author}} <br />{{book.publisher}}</h6>
+                <h3>{{book.title}}</h3>
+                <h6>{{book.author}}</h6>
+                <h5>Price: {{book.price}}$</h5>
+            </div>
+            <div class="button-container">
+                <a routerLink="/all-books/:bookId">Details</a>
             </div>
         </div>
-
     </div>
-
 </div>
