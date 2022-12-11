@@ -9,9 +9,9 @@ const bookSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Author required']
     },
-    publisher: {
+    language: {
         type: String,
-        required: [true, 'Publisher required']
+        required: [true, 'Language required']
     },
     price: {
         type: Number,

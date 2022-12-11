@@ -121,4 +121,5 @@ input:focus,
 #description:focus {
     height: 100px;
     border-radius: 20px;
+    overflow:auto;
 }

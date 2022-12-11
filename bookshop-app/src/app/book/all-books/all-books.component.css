@@ -6,7 +6,6 @@
     transform: translate(50%);
     background-color: rgba(255, 255, 255, .2);
     border-radius: 20px;
-
 }
 
 h1{
@@ -60,19 +59,27 @@ img {
     color: black;
 }
 
-h3 {
-    margin: 1rem 0 0 0;
-    text-align: center;
+.title{
+    margin: 1rem 0 0.8rem 0;
+    position: relative;
+    height: 48px;
+    max-width: 250px;
 }
 
-h6 {
+
+h4{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    text-align: center;
+    margin: auto;
+}
+
+h6,h5 {
     text-align: center;
     margin: 0;
-}
-
-h5 {
-    text-align: center;
-    margin: 1rem 0 0 0;
 }
 
 .button-container {

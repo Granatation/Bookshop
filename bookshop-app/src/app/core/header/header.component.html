@@ -1,30 +1,32 @@
 <header>
-    <div>
-        <a routerLink="/"> Home</a>
-    </div>
     <nav>
-
         <ul *ngIf="isLoggedIn">
             <li>
-                <a routerLink="/all-books">All Books</a>
+                <a routerLink="/home" routerLinkActive="active">Home</a>
             </li>
             <li>
-                <a routerLink="/add-book">Add Book</a>
+                <a routerLink="/all-books" routerLinkActive="active">All Books</a>
             </li>
             <li>
-                <a routerLink="/logout">Logout</a>
+                <a routerLink="/add-book" routerLinkActive="active">Add Book</a>
+            </li>
+            <li>
+                <a routerLink="/logout" routerLinkActive="active">Logout</a>
             </li>
         </ul>
 
         <ul *ngIf="!isLoggedIn">
             <li>
-                <a routerLink="/all-books">All Books</a>
+                <a routerLink="/home" routerLinkActive="active" >Home</a>
             </li>
             <li>
-                <a routerLink="/login">Login</a>
+                <a routerLink="/all-books" routerLinkActive="active">All Books</a>
             </li>
             <li>
-                <a routerLink="/register">Register</a>
+                <a routerLink="/login" routerLinkActive="active">Login</a>
+            </li>
+            <li>
+                <a routerLink="/register" routerLinkActive="active">Register</a>
             </li>
         </ul>
     </nav>

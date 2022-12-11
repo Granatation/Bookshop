@@ -16,8 +16,8 @@
             <p *ngIf="addBookForm.get('title')?.errors?.['minlength']" class="error">
                 Should be at least than 2 characters!
             </p>
-            <p *ngIf="addBookForm.get('title')?.errors?.['maxLength']" class="error">
-                Should not be more than 15 characters!
+            <p *ngIf="addBookForm.get('title')?.errors?.['maxlength']" class="error">
+                Should not be more than 40 characters!
             </p>
         </ng-container>
 
@@ -33,15 +33,14 @@
             <p *ngIf="addBookForm.get('author')?.errors?.['minlength']" class="error">
                 Should be at least than 2 characters!
             </p>
-            <p *ngIf="addBookForm.get('author')?.errors?.['maxLength']" class="error">
+            <p *ngIf="addBookForm.get('author')?.errors?.['maxlength']" class="error">
                 Should not be more than 15 characters!
             </p>
         </ng-container>
 
 
-
         <div>
-            <p class="icon"><i class="fa-solid fa-book"></i></p>
+            <p class="icon"><i class="fa-solid fa-language"></i></p>
             <input type="language" formControlName="language" placeholder="Enter Language">
         </div>
 
@@ -52,7 +51,7 @@
             <p *ngIf="addBookForm.get('language')?.errors?.['minlength']" class="error">
                 Should be at least than 2 characters!
             </p>
-            <p *ngIf="addBookForm.get('language')?.errors?.['maxLength']" class="error">
+            <p *ngIf="addBookForm.get('language')?.errors?.['maxlength']" class="error">
                 Should not be more than 15 characters!
             </p>
         </ng-container>
@@ -67,7 +66,7 @@
                 Price is required!
             </p>
             <p *ngIf="addBookForm.get('price')?.errors?.['max']" class="error">
-                Should cost less than 10 000$!
+                Should cost less than 1000$!
             </p>
         </ng-container>
 
@@ -89,10 +88,10 @@
         </div>
 
         <ng-container *ngIf="addBookForm.get('description')?.touched">
-            <p *ngIf="addBookForm.get('description')?.errors?.['minLength']" class="error">
+            <p *ngIf="addBookForm.get('description')?.errors?.['minlength']" class="error">
                 Should be at least 50 characters!
             </p>
-            <p *ngIf="addBookForm.get('description')?.errors?.['maxLength']" class="error">
+            <p *ngIf="addBookForm.get('description')?.errors?.['maxlength']" class="error">
                 Should not be more than 1000 characters!
             </p>
         </ng-container>

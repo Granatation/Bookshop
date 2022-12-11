@@ -1,9 +1,9 @@
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     background-color: black;
     height: 3rem;
-    padding: 0 5rem 0 8rem
+    border-bottom: 2px solid white;
 }
 
 ul {
@@ -12,12 +12,9 @@ ul {
     height: 100%;
 }
 
-div {
-    padding: 12.5px 10px;
-}
-
 li {
     display: block;
+    position: relative;
     margin: auto 2.5rem auto 0;
 }
 
@@ -28,7 +25,16 @@ a {
     color: white;
 }
 
-a:hover {
-    background-color: white;
-    color: #444444;
+.active::after,
+a:hover::after,
+.home-active:after
+{
+    content: '';
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+    position: absolute;
+    bottom: -13px;
+    right: 50%;
+    transform: translate(50%);
 }

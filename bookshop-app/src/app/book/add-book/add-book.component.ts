@@ -13,10 +13,10 @@ import { BookService } from '../book.service';
 export class AddBookComponent {
 
   addBookForm = this.fb.group({
-    title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
-    author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
-    language: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
-    price: [0, [Validators.required, Validators.min(1), Validators.max(9999)]],
+    title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
+    author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+    language: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+    price: [0, [Validators.required, Validators.min(1), Validators.max(999)]],
     imageUrl: ['', [Validators.required]],
     description: ['', [Validators.required, Validators.minLength(50), Validators.maxLength(1000)]],
   });
@@ -36,7 +36,7 @@ export class AddBookComponent {
           return;
         }
 
-        this.router.navigate(['/']);
+        this.router.navigate(['/all-books']);
       });
   }
 }
