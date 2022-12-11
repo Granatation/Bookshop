@@ -40,7 +40,6 @@ router.post('/add-book', async (req, res) => {
 router.get('/all-books', async (req, res) => {
     try {
         const books = await bookService.getAll();
-        console.log(books);
         errorChecker(books);
 
         res.json(books);
@@ -49,19 +48,16 @@ router.get('/all-books', async (req, res) => {
     }
 });
 
-// router.get('/all-landmarks/:landmarkId', async (req, res) => {
-//     try {
-//         const landmark = await landmarkService.getOne(req.params.landmarkId);
-//         errorChecker(landmark);
-
-//         const postedBy = await authService.getOne(landmark.postedBy);
-//         errorChecker(postedBy);
-
-//         res.json({ landmark, postedBy });
-//     } catch (error) {
-//         res.json({ message: error.message });
-//     }
-// });
+router.get('/all-books/:bookId', async (req, res) => {
+    try {
+        const book = await bookService.getOne(req.params.bookId);
+        errorChecker(book);
+        console.log(book)
+        res.json(book);
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+});
 
 // router.get('/all-landmarks/:landmarkId/edit', async (req, res) => {
 //     try {

@@ -25,14 +25,8 @@ export class LoginComponent {
     if (this.loginForm.invalid) { return; }
     const { email, password } = this.loginForm.value;
     this.authService.login(email!, password!)
-      .subscribe(user => {
-        let error = user as any as IError;
-        
-        if (error.message) {
-          return;
-        }
-
-        this.router.navigate(['/all-books']);
+      .subscribe({
+        next: () => this.router.navigate(['/all-books'])
       });
   }
 }

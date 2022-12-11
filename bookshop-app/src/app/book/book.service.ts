@@ -21,12 +21,32 @@ export class BookService {
         this.book = book as any as IError;
         if (this.book.message) {
           alert(this.book.message);
-        } 
+        }
       })
-    );
+      );
   }
 
-  getAllBooks(){
+  getAllBooks() {
     return this.http.get<IBook[]>(`${environment.apiURL}/all-books`)
+      .pipe(tap(books => {
+        for (const book of books) {
+          this.book = book as any as IError
+          if (this.book.message) {
+            alert(this.book.message);
+          }
+        }
+      }))
+  }
+
+  getOne(bookId: string) {
+    return this.http.get<IBook>(`${environment.apiURL}/all-books/${bookId}`)
+      .pipe(tap(book => {
+        console.log(book);
+
+        this.book = book as any as IError;
+        if (this.book.message) {
+          alert(this.book.message);
+        }
+      }))
   }
 }

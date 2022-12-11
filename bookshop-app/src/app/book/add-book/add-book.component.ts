@@ -29,14 +29,8 @@ export class AddBookComponent {
     if (this.addBookForm.invalid) { return; }
     const { title, author, language, price, imageUrl, description } = this.addBookForm.value;
     this.bookService.addBook(title!, author!, language!, price!, imageUrl!, description!)
-      .subscribe(book => {
-        let error = book as any as IError;
-
-        if (error.message) {
-          return;
-        }
-
-        this.router.navigate(['/all-books']);
+      .subscribe({
+        next: () => this.router.navigate(['/all-books'])
       });
   }
 }

@@ -10,9 +10,8 @@ import { BookService } from '../book.service';
 export class AllBooksComponent implements OnInit {
 
   allBooks: IBook[] | null = null;
-  constructor(private bookService: BookService) {
 
-  }
+  constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
     this.bookService.getAllBooks().subscribe({

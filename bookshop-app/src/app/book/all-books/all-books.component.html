@@ -12,7 +12,7 @@
                 <h5>Price: {{book.price}}$</h5>
             </div>
             <div class="button-container">
-                <a routerLink="/all-books/:bookId">Details</a>
+                <a [routerLink]="['/all-books',book._id]">Details</a>
             </div>
         </div>
     </div>

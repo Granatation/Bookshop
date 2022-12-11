@@ -8,4 +8,5 @@ export interface IBook {
     imageUrl: string;
     description: string;
     postCreator: IUser;
+    _id: string;
 }
