@@ -7,16 +7,16 @@ const errorChecker = require('../utils/errorChecker');
 
 router.post('/add-book', async (req, res) => {
     try {
-        const { title, author, language, price, imageUrl, description } = req.body;
+        const { title, author, language, description, price, availability, imageUrl } = req.body;
 
-        if (title == '' || author == '' || language == '' || price == '' || imageUrl == '' || description == '') {
+        if (title == '' || author == '' || language == '' || availability == '' || price == '' || imageUrl == '' || description == '') {
             throw new Error('Empty fields!')
         }
 
         const user = await authService.getUser(req);
         errorChecker(user);
 
-        const result = await bookService.create({ title, author, language, price, imageUrl, description, postCreator: user._id });
+        const result = await bookService.create({ title, author, language, description, price, availability, imageUrl, postCreator: user._id });
         errorChecker(result);
 
         const bookArr = [...user.books, result._id];

@@ -12,24 +12,28 @@ const bookSchema = new mongoose.Schema({
     language: {
         type: String,
         required: [true, 'Language required']
+    }, 
+    description: {
+        type: String,
+        required: [true, 'Description required']
     },
     price: {
         type: Number,
         required: [true, 'Price required']
     },
+    availability: {
+        type: Number,
+        required: [true, 'Availability required']
+    },
     imageUrl: {
         type: String,
         required: [true, 'Image URL required']
-    },
-    description: {
-        type: String,
-        required: [true, 'Description required']
     },
     postCreator: {
         type: mongoose.Types.ObjectId,
         ref: 'User'
     }
-    
+
 });
 
 const Book = mongoose.model('Book', bookSchema);
