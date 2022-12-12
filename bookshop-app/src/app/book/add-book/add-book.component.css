@@ -121,5 +121,9 @@ input:focus,
 #description:focus {
     height: 100px;
     border-radius: 20px;
-    overflow:auto;
+    overflow: auto;
+}
+
+#previous {
+    margin-bottom: 0;
 }

@@ -2,101 +2,131 @@
 
     <fieldset>
         <h2>Add Book</h2>
+        <ng-container *ngIf="!next">
+            <div>
+                <p class="icon"><i class="fa-solid fa-book"></i></p>
+                <input type="text" formControlName="title" placeholder="Enter Title">
+            </div>
 
-        <div>
-            <p class="icon"><i class="fa-solid fa-book"></i></p>
-            <input type="text" formControlName="title" placeholder="Enter Title">
-        </div>
 
+            <ng-container *ngIf="addBookForm.get('title')?.touched">
+                <p *ngIf="addBookForm.get('title')?.errors?.['required']" class="error">
+                    Title is required!
+                </p>
+                <p *ngIf="addBookForm.get('title')?.errors?.['minlength']" class="error">
+                    Should be at least than 2 characters!
+                </p>
+                <p *ngIf="addBookForm.get('title')?.errors?.['maxlength']" class="error">
+                    Should not be more than 40 characters!
+                </p>
+            </ng-container>
 
-        <ng-container *ngIf="addBookForm.get('title')?.touched">
-            <p *ngIf="addBookForm.get('title')?.errors?.['required']" class="error">
-                Title is required!
-            </p>
-            <p *ngIf="addBookForm.get('title')?.errors?.['minlength']" class="error">
-                Should be at least than 2 characters!
-            </p>
-            <p *ngIf="addBookForm.get('title')?.errors?.['maxlength']" class="error">
-                Should not be more than 40 characters!
-            </p>
+            <div>
+                <p class="icon"><i class="fa-solid fa-pen-nib"></i></p>
+                <input type="author" formControlName="author" placeholder="Enter Author">
+            </div>
+
+            <ng-container *ngIf="addBookForm.get('author')?.touched">
+                <p class="error" *ngIf="addBookForm.get('author')?.errors?.['required']">
+                    Author is required!
+                </p>
+                <p *ngIf="addBookForm.get('author')?.errors?.['minlength']" class="error">
+                    Should be at least than 2 characters!
+                </p>
+                <p *ngIf="addBookForm.get('author')?.errors?.['maxlength']" class="error">
+                    Should not be more than 15 characters!
+                </p>
+            </ng-container>
+
+            <div>
+                <p class="icon"><i class="fa-solid fa-language"></i></p>
+                <input type="language" formControlName="language" placeholder="Enter Language">
+            </div>
+
+            <ng-container *ngIf="addBookForm.get('language')?.touched">
+                <p class="error" *ngIf="addBookForm.get('language')?.errors?.['required']">
+                    Language is required!
+                </p>
+                <p *ngIf="addBookForm.get('language')?.errors?.['minlength']" class="error">
+                    Should be at least than 2 characters!
+                </p>
+                <p *ngIf="addBookForm.get('language')?.errors?.['maxlength']" class="error">
+                    Should not be more than 15 characters!
+                </p>
+            </ng-container>
+
+            <div>
+                <p class="icon"><i class="fa-solid fa-quote-left"></i></p>
+                <textarea id="description" type="text" formControlName="description"
+                    placeholder="Enter Description"></textarea>
+            </div>
+
+            <ng-container *ngIf="addBookForm.get('description')?.touched">
+                <p *ngIf="addBookForm.get('description')?.errors?.['minlength']" class="error">
+                    Should be at least 50 characters!
+                </p>
+                <p *ngIf="addBookForm.get('description')?.errors?.['maxlength']" class="error">
+                    Should not be more than 1000 characters!
+                </p>
+            </ng-container>
+
+            <button (click)="nextHandler()">Next</button>
         </ng-container>
 
-        <div>
-            <p class="icon"><i class="fa-solid fa-pen-nib"></i></p>
-            <input type="author" formControlName="author" placeholder="Enter Author">
-        </div>
+        <ng-container *ngIf="next">
 
-        <ng-container *ngIf="addBookForm.get('author')?.touched">
-            <p class="error" *ngIf="addBookForm.get('author')?.errors?.['required']">
-                Author is required!
-            </p>
-            <p *ngIf="addBookForm.get('author')?.errors?.['minlength']" class="error">
-                Should be at least than 2 characters!
-            </p>
-            <p *ngIf="addBookForm.get('author')?.errors?.['maxlength']" class="error">
-                Should not be more than 15 characters!
-            </p>
+            <div>
+                <p class="icon"><i class="fa-solid fa-dollar-sign"></i></p>
+                <input type="text" formControlName="price" placeholder="Enter Price In Dollars">
+            </div>
+
+            <ng-container *ngIf="addBookForm.get('price')?.touched">
+                <p *ngIf="addBookForm.get('price')?.errors?.['strToNumValidator']" class="error">
+                    Price must be a number!
+                </p>
+                <p *ngIf="addBookForm.get('price')?.errors?.['minNumberValidator']" class="error">
+                    Price must be at least 1$!
+                </p>
+                <p *ngIf="addBookForm.get('price')?.errors?.['maxNumberValidator']" class="error">
+                    Price must be less than 1000$!
+                </p>
+            </ng-container>
+
+            <div>
+                <p class="icon"><i class="fa-solid fa-dollar-sign"></i></p>
+                <input type="text" formControlName="availability" placeholder="Enter Availability">
+            </div>
+
+            <ng-container *ngIf="addBookForm.get('availability')?.touched">
+                <p *ngIf="addBookForm.get('availability')?.errors?.['strToNumValidator']" class="error">
+                    Availability must be a whole number!
+                </p>
+                <p *ngIf="addBookForm.get('availability')?.errors?.['wholeNumValidator']" class="error">
+                    Availability must be a whole number!
+                </p>
+                <p *ngIf="addBookForm.get('availability')?.errors?.['minNumberValidator']" class="error">
+                    Availability must be at least 1!
+                </p>
+                <p *ngIf="addBookForm.get('availability')?.errors?.['maxNumberValidator']" class="error">
+                    Availability must be less than 1000!
+                </p>
+            </ng-container>
+
+            <div>
+                <p class="icon"><i class="fa-solid fa-image"></i></p>
+                <input type="text" formControlName="imageUrl" placeholder="Enter Image URL">
+            </div>
+
+            <ng-container *ngIf="addBookForm.get('imageUrl')?.touched">
+                <p *ngIf="addBookForm.get('imageUrl')?.errors?.['required']" class="error">
+                    Image URL is required!
+                </p>
+            </ng-container>
+
+            <button id="previous" (click)="nextHandler()">Previous</button>
+
+            <button [disabled]="addBookForm.invalid">Add Book</button>
         </ng-container>
-
-
-        <div>
-            <p class="icon"><i class="fa-solid fa-language"></i></p>
-            <input type="language" formControlName="language" placeholder="Enter Language">
-        </div>
-
-        <ng-container *ngIf="addBookForm.get('language')?.touched">
-            <p class="error" *ngIf="addBookForm.get('language')?.errors?.['required']">
-                Language is required!
-            </p>
-            <p *ngIf="addBookForm.get('language')?.errors?.['minlength']" class="error">
-                Should be at least than 2 characters!
-            </p>
-            <p *ngIf="addBookForm.get('language')?.errors?.['maxlength']" class="error">
-                Should not be more than 15 characters!
-            </p>
-        </ng-container>
-
-        <div>
-            <p class="icon"><i class="fa-solid fa-dollar-sign"></i></p>
-            <input type="number" formControlName="price">
-        </div>
-
-        <ng-container *ngIf="addBookForm.get('price')?.touched">
-            <p *ngIf="addBookForm.get('price')?.errors?.['min']" class="error">
-                Price is required!
-            </p>
-            <p *ngIf="addBookForm.get('price')?.errors?.['max']" class="error">
-                Should cost less than 1000$!
-            </p>
-        </ng-container>
-
-        <div>
-            <p class="icon"><i class="fa-solid fa-image"></i></p>
-            <input type="text" formControlName="imageUrl" placeholder="Enter Image URL">
-        </div>
-
-        <ng-container *ngIf="addBookForm.get('imageUrl')?.touched">
-            <p *ngIf="addBookForm.get('imageUrl')?.errors?.['required']" class="error">
-                Image URL is required!
-            </p>
-        </ng-container>
-
-        <div>
-            <p class="icon"><i class="fa-solid fa-quote-left"></i></p>
-            <textarea id="description" type="text" formControlName="description"
-                placeholder="Enter Description"></textarea>
-        </div>
-
-        <ng-container *ngIf="addBookForm.get('description')?.touched">
-            <p *ngIf="addBookForm.get('description')?.errors?.['minlength']" class="error">
-                Should be at least 50 characters!
-            </p>
-            <p *ngIf="addBookForm.get('description')?.errors?.['maxlength']" class="error">
-                Should not be more than 1000 characters!
-            </p>
-        </ng-container>
-
-        <button [disabled]="addBookForm.invalid">Add Book</button>
 
     </fieldset>
 </form>

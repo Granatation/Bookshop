@@ -15,8 +15,9 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  addBook(title: string, author: string, language: string, price: number, imageUrl: string, description: string) {
-    return this.http.post<IBook>(`${environment.apiURL}/add-book`, { title, author, language, price, imageUrl, description })
+  addBook(title: string, author: string, language: string, description: string, price: string, availability: string, imageUrl: string) {
+    return this.http.post<IBook>(`${environment.apiURL}/add-book`,
+      { title, author, language, description, price, availability, imageUrl })
       .pipe(tap(book => {
         this.book = book as any as IError;
         if (this.book.message) {
