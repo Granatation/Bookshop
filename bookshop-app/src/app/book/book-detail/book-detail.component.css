@@ -1,0 +1,86 @@
+.container {
+    width: 1038px;
+    height: 1100px;
+    position: absolute;
+    right: 50%;
+    margin: 4rem 0 4rem 0;
+    transform: translate(50%);
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    color: black
+}
+
+.image-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    right: 50%;
+    width: 50%;
+    height: 500px;
+    margin-top: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 2px black solid;
+    border-bottom: 0;
+    border-top: 0;
+    border-left: 0;
+}
+
+img {
+    object-fit: contain;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.book {
+    position: absolute;
+    width: 359px;
+    left: 50%;
+    margin: 80px;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+button {
+    font-family: Bitter;
+    background: black;
+    color: white;
+    width: 301px;
+    margin: 2rem 0 0 29px;
+    padding: 1rem;
+    border-radius: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.5s;
+}
+
+.container:first-child(div) {
+    position: absolute;
+
+}
+
+.description-container {
+    position: absolute;
+    top: 640px;
+    /* padding-top: 20px; */
+    right: 50%;
+    transform: translate(50%);
+    border: 2px black solid;
+    width: 938px;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+h2{
+    text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    opacity: 0.9;
+}

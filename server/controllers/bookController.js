@@ -52,7 +52,7 @@ router.get('/all-books/:bookId', async (req, res) => {
     try {
         const book = await bookService.getOne(req.params.bookId);
         errorChecker(book);
-        console.log(book)
+        
         res.json(book);
     } catch (error) {
         res.json({ message: error.message });

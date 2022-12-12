@@ -1,1 +1,18 @@
-<p>{{book.title}}</p>
+<div class="container">
+    <div class="image-container">
+        <img src={{book.imageUrl}} alt="">
+    </div>
+    <div class="book">
+        <p>Title: {{book.title}}</p>
+        <p>Author: {{book.author}}</p>
+        <p>Language: {{book.language}}</p>
+        <p>Books available: {{book.availability}}</p>
+        <p>Price: {{book.price}}$</p>
+        <button>Buy now</button>
+    </div>
+
+    <div class="description-container">
+        <h2>Description</h2>
+        <p>{{book.description}}</p>
+    </div>
+</div>
