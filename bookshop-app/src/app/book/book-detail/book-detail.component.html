@@ -8,7 +8,9 @@
         <p>Language: {{book.language}}</p>
         <p>Books available: {{book.availability}}</p>
         <p>Price: {{book.price}}$</p>
-        <button>Buy now</button>
+        <button *ngIf="!bookOwner">Buy now</button>
+        <button *ngIf="bookOwner">Edit</button>
+        <button *ngIf="bookOwner">Delete</button>
     </div>
 
     <div class="description-container">

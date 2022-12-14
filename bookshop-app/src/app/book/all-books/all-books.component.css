@@ -64,11 +64,19 @@ img {
     position: relative;
     height: 48px;
     max-width: 250px;
+    margin-left:50px;
+    margin-right:50px;
 }
 
+.titleOverflow{
+    overflow: auto;
+}
 
 h4{
     position: absolute;
+    overflow:hidden;
+    margin-left:20px;
+    margin-right:20px;
     width: 100%;
     top: 50%;
     right: 50%;

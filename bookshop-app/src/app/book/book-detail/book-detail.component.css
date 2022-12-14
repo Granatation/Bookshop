@@ -75,7 +75,7 @@ button {
     border-right: 0;
 }
 
-h2{
+h2 {
     text-align: center;
 }
 
@@ -83,4 +83,8 @@ button:hover {
     cursor: pointer;
     transform: scale(1.05);
     opacity: 0.9;
+}
+
+div p {
+    overflow: auto
 }

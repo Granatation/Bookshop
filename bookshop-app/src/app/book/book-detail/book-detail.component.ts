@@ -13,6 +13,8 @@ export class BookDetailComponent implements OnInit {
 
   book!: IBook
 
+  bookOwner: string | null = localStorage.getItem('user');
+
   constructor(private route: ActivatedRoute, private bookService: BookService) { }
 
   ngOnInit(): void {

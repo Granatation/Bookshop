@@ -7,7 +7,7 @@
             </div>
             <div class="book">
                 <div class="title">
-                    <h4>{{book.title}}</h4>
+                    <h4 (click)="onClickHandler()" [ngClass]="{'titleOverflow': overflow===true}">{{book.title}}</h4>
                 </div>
                 <h5>Price: {{book.price}}$</h5>
             </div>
