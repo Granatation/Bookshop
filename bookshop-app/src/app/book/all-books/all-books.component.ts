@@ -10,7 +10,6 @@ import { BookService } from '../book.service';
 export class AllBooksComponent implements OnInit {
 
   allBooks: IBook[] | null = null;
-  overflow = false;
 
   constructor(private bookService: BookService) { }
 
@@ -20,11 +19,5 @@ export class AllBooksComponent implements OnInit {
         this.allBooks = books
       }
     })
-  }
-
-  onClickHandler() {
-    this.overflow = !this.overflow;
-    console.log(this.overflow);
-    
   }
 }
