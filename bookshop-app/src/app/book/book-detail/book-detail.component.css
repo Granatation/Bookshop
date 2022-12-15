@@ -1,4 +1,4 @@
-.container {
+/* .container {
     width: 1038px;
     height: 1100px;
     position: absolute;
@@ -7,7 +7,7 @@
     transform: translate(50%);
     background-color: rgba(255, 255, 255, .5);
     border-radius: 20px;
-    color: black
+    color: black;
 }
 
 .image-container {
@@ -39,8 +39,21 @@ img {
     margin: 80px;
 }
 
-p {
+.book div {
+    margin-bottom:20px;
+}
+
+p:not(#description) {
+    display: inline-block;
+    margin: 0;
     font-size: 1.5rem;
+    max-width: 200px;
+    overflow: auto;
+}
+
+#description{
+    max-width: 1000px;
+    overflow: auto;
 }
 
 button {
@@ -65,7 +78,6 @@ button {
 .description-container {
     position: absolute;
     top: 640px;
-    /* padding-top: 20px; */
     right: 50%;
     transform: translate(50%);
     border: 2px black solid;
@@ -83,8 +95,97 @@ button:hover {
     cursor: pointer;
     transform: scale(1.05);
     opacity: 0.9;
+} */
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-div p {
-    overflow: auto
+.container {
+    display: grid;
+    background-color: rgba(255, 255, 255, .5);
+    margin: 4rem 0 4rem 0;
+    width: 1000px;
+    color: black;
+    border-radius: 20px;
+    grid-template-areas:
+        'div div'
+        'div div';
+    grid-template-columns: 500px;
+    grid-template-rows: 550px auto;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 2px black solid;
+    border-bottom: 0;
+    border-top: 0;
+    border-left: 0;
+}
+
+img {
+    object-fit: contain;
+    max-width: 500px;
+    max-height: 430px;
+}
+
+.book {
+    margin: 80px;
+}
+
+.book div {
+    margin-bottom: 20px;
+}
+
+p:not(#description) {
+    display: inline-block;
+    margin: 0;
+    font-size: 1.5rem;
+    max-width: 200px;
+    overflow: auto;
+}
+
+#description {
+    max-width: 1000px;
+    overflow: auto;
+}
+
+button {
+    font-family: Bitter;
+    background: black;
+    color: white;
+    width: 300px;
+    margin: 2rem 0 0 20px;
+    padding: 1rem;
+    border-radius: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.5s;
+}
+
+.description-container {
+    border: 2px black solid;
+    width: 900px;
+    margin:50px;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    opacity: 0.9;
 }

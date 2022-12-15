@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     RouterModule,
@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
   ],
   exports:[
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
   ]
 })
 export class CoreModule { }
