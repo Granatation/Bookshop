@@ -6,6 +6,7 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { AllBooksComponent } from './all-books/all-books.component';
 import { RouterModule } from '@angular/router';
 import { BookListItemComponent } from './book-list-item/book-list-item.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { BookListItemComponent } from './book-list-item/book-list-item.component
     BookDetailComponent,
     AllBooksComponent,
     BookListItemComponent,
+    EditBookComponent,
   ],
   imports: [
     CommonModule,
