@@ -7,7 +7,7 @@ const router = require('./routes')
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:4200', credentials: true }));
+app.use(cors({ origin: ['http://localhost:4200','https://bookshop-pi.vercel.app'], credentials: true }));
 app.use(router);
 
 dbInit();
