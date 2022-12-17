@@ -50,4 +50,16 @@ export class BookService {
         }
       }))
   }
+
+  editBook(title: string, author: string, language: string, description: string, price: string, availability: string, imageUrl: string, bookId: string) {
+    return this.http.post<IBook>(`${environment.apiURL}/all-books/${bookId}/edit`,
+      { title, author, language, description, price, availability, imageUrl })
+      .pipe(tap(book => {
+        this.book = book as any as IError;
+        if (this.book.message) {
+          alert(this.book.message);
+        }
+      })
+      );
+  }
 }

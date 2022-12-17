@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { BookService } from '../book.service';
 import { strToNumValidator } from 'src/app/shared/validators/string-to-number-validator';
@@ -16,17 +16,19 @@ import { IBook } from 'src/app/shared/interfaces/IBook';
 })
 export class EditBookComponent implements OnInit {
 
-  editBookForm: any;
+  editBookForm!: FormGroup;
+  book!: IBook;
   next = false;
 
-  constructor(private fb: FormBuilder, private bookService: BookService, private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private bookService: BookService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const bookId = this.route.snapshot.params['bookId']
     this.bookService.getOne(bookId).subscribe({
       next: (book) => {
+        this.book = book;
         this.editBookForm = this.fb.group({
-          title: [book.title, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
+          title: [this.book.title, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
           author: [book.author, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
           language: [book.language, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
           description: [book.description, [Validators.required, Validators.minLength(50), Validators.maxLength(1000)]],
@@ -45,9 +47,9 @@ export class EditBookComponent implements OnInit {
   editBookHandler() {
     if (this.editBookForm.invalid) { return; }
     const { title, author, language, price, availability, imageUrl, description } = this.editBookForm.value;
-    // this.bookService.editBook(title!, author!, language!, description!, price!, availability!, imageUrl!)
-    //   .subscribe({
-    //     next: () => this.router.navigate(['/all-books'])
-    //   });
+    this.bookService.editBook(title!, author!, language!, description!, price!, availability!, imageUrl!, this.book._id)
+      .subscribe({
+        next: () => this.router.navigate([`/all-books/${this.book._id}`])
+      });
   }
 }

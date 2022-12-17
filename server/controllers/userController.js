@@ -50,7 +50,7 @@ router.post('/register', async (req, res) => {
         const accessToken = await authService.createToken(email);
         errorChecker(accessToken);
 
-        const createdUser = await authService.create({ username, email, password, accessToken, books:[] });
+        const createdUser = await authService.create({ username, email, password, accessToken, books: [] });
         errorChecker(createdUser);
 
         res.json(createdUser);
@@ -59,6 +59,17 @@ router.post('/register', async (req, res) => {
     }
 
 });
+
+router.get('/user/:userId', async (req, res) => {
+    try {
+        const user = await authService.getOne(req.params.userId);
+        errorChecker(user);
+
+        res.json(user);
+    } catch (error) {
+        req.json({ message: error.message });
+    }
+})
 
 router.get('/my-profile', async (req, res) => {
     try {

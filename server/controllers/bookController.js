@@ -52,40 +52,33 @@ router.get('/all-books/:bookId', async (req, res) => {
     try {
         const book = await bookService.getOne(req.params.bookId);
         errorChecker(book);
-        
+
         res.json(book);
     } catch (error) {
         res.json({ message: error.message });
     }
 });
 
-// router.get('/all-landmarks/:landmarkId/edit', async (req, res) => {
-//     try {
-//         const landmark = await landmarkService.getOne(req.params.landmarkId);
-//         errorChecker(landmark);
+router.post('/all-books/:bookId/edit', async (req, res) => {
+    try {
+        const { title, author, language, description, price, availability, imageUrl } = req.body;
 
-//         res.json(landmark);
-//     } catch (error) {
-//         res.json({ message: error.message });
-//     }
-// });
+        if (title == '' || author == '' || language == '' || availability == '' || price == '' || imageUrl == '' || description == '') {
+            throw new Error('Empty fields!')
+        }
 
-// router.post('/all-landmarks/:landmarkId/edit', async (req, res) => {
-//     try {
-//         const { name, town, country, imageUrl, description } = req.body;
+        const user = authService.getUser(req);
+        errorChecker(user);
 
-//         const user = authService.getUser(req);
-//         errorChecker(user);
-
-//         const updatedLandmark = await landmarkService
-//             .update(req.params.landmarkId, { name, town, country, imageUrl, description, postedBy: user._id });
-//         errorChecker(updatedLandmark);
-
-//         res.json(updatedLandmark);
-//     } catch (error) {
-//         res.json({ message: error.message });
-//     }
-// });
+        const updatedBook = await bookService
+            .update(req.params.bookId, { title, author, language, description, price, availability, imageUrl, postCreator: user._id });
+        errorChecker(updatedBook);
+        console.log(updatedBook);
+        res.json(updatedBook);
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+});
 
 // router.get('/all-landmarks/:landmarkId/delete', async (req, res) => {
 //     try {

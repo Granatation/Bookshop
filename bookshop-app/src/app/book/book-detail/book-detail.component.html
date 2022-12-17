@@ -24,9 +24,9 @@
                 <p>Price: </p>
                 <p>{{book.price}}$</p>
             </div>
-            <a *ngIf="!bookOwner" [routerLink]="['/all-books',book._id,'buy']">Buy now</a>
-            <a *ngIf="bookOwner" [routerLink]="['/all-books',book._id,'edit']">Edit</a>
-            <a *ngIf="bookOwner" [routerLink]="['/all-books',book._id,'delete']">Delete</a>
+            <a *ngIf="!isOwner" [routerLink]="['/all-books',book._id,'buy']">Buy now</a>
+            <a *ngIf="isOwner" [routerLink]="['/all-books',book._id,'edit']">Edit</a>
+            <a *ngIf="isOwner" [routerLink]="['/all-books',book._id,'delete']">Delete</a>
         </div>
 
         <div class="description-container">

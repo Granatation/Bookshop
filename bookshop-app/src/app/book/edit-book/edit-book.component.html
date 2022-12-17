@@ -23,7 +23,7 @@
 
             <div>
                 <p class="icon"><i class="fa-solid fa-pen-nib"></i></p>
-                <input type="author" formControlName="author" placeholder="Enter Author">
+                <input type="text" formControlName="author" placeholder="Enter Author">
             </div>
 
             <ng-container *ngIf="editBookForm.get('author')?.touched">
@@ -40,7 +40,7 @@
 
             <div>
                 <p class="icon"><i class="fa-solid fa-language"></i></p>
-                <input type="language" formControlName="language" placeholder="Enter Language">
+                <input type="text" formControlName="language" placeholder="Enter Language">
             </div>
 
             <ng-container *ngIf="editBookForm.get('language')?.touched">
@@ -93,7 +93,7 @@
             </ng-container>
 
             <div>
-                <p class="icon"><i class="fa-solid fa-dollar-sign"></i></p>
+                <p class="icon"><i class="fa-solid fa-arrow-up-9-1"></i></p>
                 <input type="text" formControlName="availability" placeholder="Enter Availability">
             </div>
 

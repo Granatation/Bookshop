@@ -51,4 +51,14 @@ export class AuthService {
       localStorage.removeItem('user');
     }
   }
+
+  getUser(userId: string) {
+    return this.http.get<IUser>(`${environment.apiURL}/user/${userId}`)
+      .pipe(tap(user => {
+        this.user = user as any as IError;
+        if (this.user.message) {
+          alert(this.user.message);
+        }
+      }))
+  }
 }
