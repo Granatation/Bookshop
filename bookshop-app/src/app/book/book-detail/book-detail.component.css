@@ -49,7 +49,10 @@ p:not(#description) {
     display: inline-block;
     margin: 0;
     font-size: 1.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     max-width: 200px;
+    max-height: 50px;
     overflow: auto;
 }
 

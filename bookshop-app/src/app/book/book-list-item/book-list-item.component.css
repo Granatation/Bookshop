@@ -33,33 +33,41 @@ img {
     color: black;
 }
 
-.title{
+.title {
     margin: 1rem 0 0.8rem 0;
     position: relative;
     height: 48px;
-    max-width: 250px;
-    margin-left:50px;
-    margin-right:50px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-.titleOverflow{
+.titleOverflow {
     overflow: auto;
+    white-space: nowrap;
+    text-overflow: clip;
 }
 
-h4{
+h4:hover {
+    cursor: pointer;
+}
+
+h4 {
     position: absolute;
-    overflow:hidden;
-    margin-left:20px;
-    margin-right:20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-right: 20px;
     width: 100%;
     top: 50%;
     right: 50%;
-    transform: translate(50%,-50%);
+    transform: translate(50%, -50%);
     text-align: center;
     margin: auto;
 }
 
-h6,h5 {
+h6,
+h5 {
     text-align: center;
     margin: 0;
 }
@@ -69,7 +77,12 @@ h6,h5 {
     justify-content: center;
 }
 
-a {
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#details-button {
     background: black;
     color: white;
     text-decoration: none;

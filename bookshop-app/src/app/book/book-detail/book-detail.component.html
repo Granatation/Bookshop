@@ -5,23 +5,23 @@
         </div>
         <div class="book">
             <div>
-                <p>Title: </p>
+                <p>Title:&nbsp;</p>
                 <p>{{book.title}}</p>
             </div>
             <div>
-                <p>Author: </p>
+                <p>Author:&nbsp;</p>
                 <p>{{book.author}}</p>
             </div>
             <div>
-                <p>Language: </p>
+                <p>Language:&nbsp;</p>
                 <p>{{book.language}}</p>
             </div>
             <div>
-                <p>Books available: </p>
+                <p>Books available:&nbsp;</p>
                 <p>{{book.availability}}</p>
             </div>
             <div>
-                <p>Price: </p>
+                <p>Price:&nbsp;</p>
                 <p>{{book.price}}$</p>
             </div>
             <a *ngIf="!isOwner" [routerLink]="['/all-books',book._id,'buy']">Buy now</a>

@@ -7,12 +7,7 @@ import { IBook } from 'src/app/shared/interfaces/IBook';
   styleUrls: ['./book-list-item.component.css']
 })
 export class BookListItemComponent {
-  overflow = false;
-
+  
   @Input() book!: IBook;
-
-  onClickHandler() {
-    this.overflow = !this.overflow;
-  }
 
 }

@@ -1,14 +1,20 @@
 <div class="before-container">
     <div class="imageContainer">
-        <img src={{book.imageUrl}} />
+        <a [routerLink]="['/all-books',book._id]">
+            <img src={{book.imageUrl}} />
+        </a>
+
     </div>
     <div class="book">
         <div class="title">
-            <h4 (click)="onClickHandler()" [ngClass]="{'titleOverflow': overflow===true}">{{book.title}}</h4>
+            <a [routerLink]="['/all-books',book._id]">
+                <h4>{{book.title}}</h4>
+            </a>
+
         </div>
         <h5>Price: {{book.price}}$</h5>
     </div>
     <div class="button-container">
-        <a [routerLink]="['/all-books',book._id]">Details</a>
+        <a id="details-button" [routerLink]="['/all-books',book._id]">Details</a>
     </div>
 </div>
