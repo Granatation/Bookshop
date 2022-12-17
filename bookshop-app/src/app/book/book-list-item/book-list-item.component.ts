@@ -13,8 +13,6 @@ export class BookListItemComponent {
 
   onClickHandler() {
     this.overflow = !this.overflow;
-    console.log(this.overflow);
-    
   }
 
 }

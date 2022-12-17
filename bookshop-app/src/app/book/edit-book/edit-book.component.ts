@@ -28,7 +28,7 @@ export class EditBookComponent implements OnInit {
       next: (book) => {
         this.book = book;
         this.editBookForm = this.fb.group({
-          title: [this.book.title, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
+          title: [book.title, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
           author: [book.author, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
           language: [book.language, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
           description: [book.description, [Validators.required, Validators.minLength(50), Validators.maxLength(1000)]],

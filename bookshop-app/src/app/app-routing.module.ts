@@ -7,6 +7,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { AllBooksComponent } from './book/all-books/all-books.component';
 import { BookDetailComponent } from './book/book-detail/book-detail.component';
+import { DeleteBookComponent } from './book/delete-book/delete-book.component';
 import { EditBookComponent } from './book/edit-book/edit-book.component';
 import { HomeComponent } from './core/home/home.component';
 
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: 'all-books/:bookId/edit',
     component: EditBookComponent
+  },
+  {
+    path: 'all-books/:bookId/delete',
+    component: DeleteBookComponent
   }
 
 ];

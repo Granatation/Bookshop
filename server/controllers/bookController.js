@@ -73,39 +73,39 @@ router.post('/all-books/:bookId/edit', async (req, res) => {
         const updatedBook = await bookService
             .update(req.params.bookId, { title, author, language, description, price, availability, imageUrl, postCreator: user._id });
         errorChecker(updatedBook);
-        console.log(updatedBook);
+
         res.json(updatedBook);
     } catch (error) {
         res.json({ message: error.message });
     }
 });
 
-// router.get('/all-landmarks/:landmarkId/delete', async (req, res) => {
-//     try {
-//         const landmark = await landmarkService.del(req.params.landmarkId);
-//         errorChecker(landmark);
+router.get('/all-books/:bookId/delete', async (req, res) => {
+    try {
+        const book = await bookService.del(req.params.bookId);
+        errorChecker(book);
 
-//         const user = await authService.getUser(req);
-//         errorChecker(user);
+        const user = await authService.getUser(req);
+        errorChecker(user);
 
-//         const landmarkArr = user.landmarks.filter(x => x != req.params.landmarkId);
-//         errorChecker(landmarkArr);
+        const bookArr = user.books.filter(x => x != req.params.bookId);
+        errorChecker(bookArr);
 
-//         const updatedUser = await authService.update(user._id, {
-//             _id: user._id,
-//             username: user.username,
-//             accessToken: user.accessToken,
-//             email: user.email,
-//             password: user.password,
-//             landmarks: landmarkArr
-//         });
-//         errorChecker(updatedUser);
+        const updatedUser = await authService.update(user._id, {
+            _id: user._id,
+            username: user.username,
+            email: user.email,
+            password: user.password,
+            accessToken: user.accessToken,
+            books: bookArr
+        });
+        errorChecker(updatedUser);
 
-//         res.json(landmark);
-//     } catch (error) {
-//         res.json({ message: error.message });
-//     }
-// });
+        res.json(book);
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+});
 
 // router.get('/all-landmarks/:landmarkId/visit', async (req, res) => {
 //     try {
