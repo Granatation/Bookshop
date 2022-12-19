@@ -1,0 +1,7 @@
+{
+    "dependencies": {
+    },
+    "scripts":{
+      "build":"cd bookshop-app && npm run build"
+    }
+  }
