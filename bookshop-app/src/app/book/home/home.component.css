@@ -1,0 +1,38 @@
+#welcome-container {
+    width: 1038px;
+    position: absolute;
+    right: 50%;
+    margin-top: 4rem;
+    transform: translate(50%);
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 20px;
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin: 2rem 0 0 0;
+    color: black;
+}
+
+.content {
+    display: inline-block;
+    margin: 3rem;
+    width: 250px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, .5);
+    border: none;
+    border-radius: 10px;
+}
+
+@media only screen and (width<1038px) {
+    #welcome-container {
+        width: 692px;
+    }
+}
+
+@media only screen and (width<692px) {
+    #welcome-container {
+        width: 346px;
+    }
+}

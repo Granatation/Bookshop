@@ -1,0 +1,7 @@
+<div id="welcome-container">
+    <h1>Welcome to Bookshop!</h1>
+    <h2>Here are the most bought books:</h2>
+    <div *ngFor="let book of allBooks" class="content">
+        <app-book-list-item [book]="book"></app-book-list-item>
+    </div>
+</div>

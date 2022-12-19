@@ -9,7 +9,7 @@ import { AllBooksComponent } from './book/all-books/all-books.component';
 import { BookDetailComponent } from './book/book-detail/book-detail.component';
 import { DeleteBookComponent } from './book/delete-book/delete-book.component';
 import { EditBookComponent } from './book/edit-book/edit-book.component';
-import { HomeComponent } from './core/home/home.component';
+import { HomeComponent } from './book/home/home.component';
 import { AuthActivate } from './shared/guards/auth.activate';
 
 const routes: Routes = [

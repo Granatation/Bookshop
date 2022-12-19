@@ -7,7 +7,7 @@ import { IBook } from 'src/app/shared/interfaces/IBook';
   styleUrls: ['./book-list-item.component.css']
 })
 export class BookListItemComponent {
-  
+
   @Input() book!: IBook;
 
 }
