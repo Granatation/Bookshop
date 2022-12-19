@@ -2,7 +2,7 @@
     "dependencies": {
     },
     "scripts":{
-      "start":"cd bookshop-app && npm start",
-      "build":"cd bookshop-app && npm run build"
+      "start":"cd bookshop-app && ng serve",
+      "build":"cd bookshop-app && ng build"
     }
   }
