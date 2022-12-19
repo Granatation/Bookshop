@@ -1,8 +1,0 @@
-{
-    "dependencies": {
-    },
-    "scripts":{
-      "start":"cd bookshop-app && ng serve",
-      "build":"cd bookshop-app && ng build"
-    }
-  }
