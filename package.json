@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-  },
-  "scripts":{
-    "start":"node server/index.js",
-    "ng": "cd bookshop-app && ng serve"
-  }
-}
