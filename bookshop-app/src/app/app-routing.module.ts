@@ -10,6 +10,7 @@ import { BookDetailComponent } from './book/book-detail/book-detail.component';
 import { DeleteBookComponent } from './book/delete-book/delete-book.component';
 import { EditBookComponent } from './book/edit-book/edit-book.component';
 import { HomeComponent } from './core/home/home.component';
+import { AuthActivate } from './shared/guards/auth.activate';
 
 const routes: Routes = [
   {
@@ -23,35 +24,59 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [AuthActivate],
+    data: {
+      loginRequired: false
+    }
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthActivate],
+    data: {
+      loginRequired: false
+    }
   },
   {
     path: 'logout',
-    component: LogoutComponent
+    component: LogoutComponent,
+    canActivate: [AuthActivate],
+    data: {
+      loginRequired: true
+    }
   },
   {
     path: 'add-book',
-    component: AddBookComponent
+    component: AddBookComponent,
+    canActivate: [AuthActivate],
+    data: {
+      loginRequired: true
+    }
   },
   {
     path: 'all-books',
-    component: AllBooksComponent
+    component: AllBooksComponent,
   },
   {
     path: 'all-books/:bookId',
-    component: BookDetailComponent
+    component: BookDetailComponent,
   },
   {
     path: 'all-books/:bookId/edit',
-    component: EditBookComponent
+    component: EditBookComponent,
+    canActivate: [AuthActivate],
+    data: {
+      loginRequired: true
+    }
   },
   {
     path: 'all-books/:bookId/delete',
-    component: DeleteBookComponent
+    component: DeleteBookComponent,
+    canActivate: [AuthActivate],
+    data: {
+      loginRequired: true
+    }
   }
 
 ];
