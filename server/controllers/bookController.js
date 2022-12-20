@@ -8,7 +8,6 @@ const errorChecker = require('../utils/errorChecker');
 router.post('/add-book', async (req, res) => {
     try {
         const { title, author, language, description, price, availability, imageUrl, sales } = req.body;
-        console.log(req.body);
 
         if (title == '' || author == '' || language == '' || availability == '' || price == '' || imageUrl == '' || description == '') {
             throw new Error('Empty fields!')
@@ -64,7 +63,7 @@ router.post('/all-books/:bookId/edit', async (req, res) => {
     try {
         const { title, author, language, description, price, availability, imageUrl, sales } = req.body;
 
-        if (title == '' || author == '' || language == '' || availability == '' || price == '' || imageUrl == '' || description == '' || sales == '') {
+        if (title == '' || author == '' || language == '' || availability == '' || price == '' || imageUrl == '' || description == '') {
             throw new Error('Empty fields!')
         }
 

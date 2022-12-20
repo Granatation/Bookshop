@@ -8,7 +8,7 @@ import { BookService } from 'src/app/book/book.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
   allBooks: IBook[] | null = null;
 
   constructor(private bookService: BookService) { }
@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit{
     this.bookService.getAllBooks().subscribe({
       next: (books) => {
         this.allBooks = books
+      },
+      error: (err) => {
+        alert(err.message)
       }
     })
   }

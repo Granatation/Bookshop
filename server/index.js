@@ -7,8 +7,10 @@ const router = require('./routes')
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: ['http://localhost:4200','https://bookshop-omega.vercel.app','https://bookshop-glz95k2kz-granatation.vercel.app'], credentials: true }));
+app.use(cors({ origin: ['http://localhost:4200', 'https://bookshop-omega.vercel.app'], credentials: true }));
 app.use(router);
 
+const port = process.env.PORT || 3030
+
 dbInit();
-app.listen(process.env.PORT || 3030 , () => console.log(`Server listening on port ${process.env.PORT}`))
+app.listen(port, () => console.log(`Server listening on port ${port}`));
