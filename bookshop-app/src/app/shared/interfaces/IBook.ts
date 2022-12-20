@@ -8,6 +8,7 @@ export interface IBook {
     price: number;
     availability: number;
     imageUrl: string;
+    sales: number;
     postCreator: IUser;
     _id: string;
 }

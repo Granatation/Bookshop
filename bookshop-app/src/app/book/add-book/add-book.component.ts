@@ -16,6 +16,7 @@ import { wholeNumValidator } from 'src/app/shared/validators/whole-number-valida
 export class AddBookComponent {
 
   next = false;
+  sales = 0;
 
   addBookForm = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
@@ -23,7 +24,7 @@ export class AddBookComponent {
     language: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
     description: ['', [Validators.required, Validators.minLength(50), Validators.maxLength(1000)]],
     price: ['', [Validators.required, strToNumValidator(), minNumberValidator(), maxNumberValidator()]],
-    availability: ['', [Validators.required, strToNumValidator(), minNumberValidator(), maxNumberValidator(),wholeNumValidator()]],
+    availability: ['', [Validators.required, strToNumValidator(), minNumberValidator(), maxNumberValidator(), wholeNumValidator()]],
     imageUrl: ['', [Validators.required]],
   });
 
@@ -39,7 +40,7 @@ export class AddBookComponent {
   addBookHandler() {
     if (this.addBookForm.invalid) { return; }
     const { title, author, language, price, availability, imageUrl, description } = this.addBookForm.value;
-    this.bookService.addBook(title!, author!, language!, description!, price!, availability!, imageUrl!)
+    this.bookService.addBook(title!, author!, language!, description!, price!, availability!, imageUrl!, this.sales)
       .subscribe({
         next: () => this.router.navigate(['/all-books'])
       });

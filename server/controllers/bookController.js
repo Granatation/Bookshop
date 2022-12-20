@@ -7,7 +7,8 @@ const errorChecker = require('../utils/errorChecker');
 
 router.post('/add-book', async (req, res) => {
     try {
-        const { title, author, language, description, price, availability, imageUrl } = req.body;
+        const { title, author, language, description, price, availability, imageUrl, sales } = req.body;
+        console.log(req.body);
 
         if (title == '' || author == '' || language == '' || availability == '' || price == '' || imageUrl == '' || description == '') {
             throw new Error('Empty fields!')
@@ -16,7 +17,7 @@ router.post('/add-book', async (req, res) => {
         const user = await authService.getUser(req);
         errorChecker(user);
 
-        const result = await bookService.create({ title, author, language, description, price, availability, imageUrl, postCreator: user._id });
+        const result = await bookService.create({ title, author, language, description, price, availability, imageUrl, sales, postCreator: user._id });
         errorChecker(result);
 
         const bookArr = [...user.books, result._id];
@@ -61,9 +62,9 @@ router.get('/all-books/:bookId', async (req, res) => {
 
 router.post('/all-books/:bookId/edit', async (req, res) => {
     try {
-        const { title, author, language, description, price, availability, imageUrl } = req.body;
+        const { title, author, language, description, price, availability, imageUrl, sales } = req.body;
 
-        if (title == '' || author == '' || language == '' || availability == '' || price == '' || imageUrl == '' || description == '') {
+        if (title == '' || author == '' || language == '' || availability == '' || price == '' || imageUrl == '' || description == '' || sales == '') {
             throw new Error('Empty fields!')
         }
 
@@ -71,7 +72,7 @@ router.post('/all-books/:bookId/edit', async (req, res) => {
         errorChecker(user);
 
         const updatedBook = await bookService
-            .update(req.params.bookId, { title, author, language, description, price, availability, imageUrl, postCreator: user._id });
+            .update(req.params.bookId, { title, author, language, description, price, availability, imageUrl, sales, postCreator: user._id });
         errorChecker(updatedBook);
 
         res.json(updatedBook);

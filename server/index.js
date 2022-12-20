@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
 
-const { PORT } = require('./config/env.js');
 const { dbInit } = require('./config/db');
 const router = require('./routes')
 const app = express();
@@ -11,4 +11,4 @@ app.use(cors({ origin: ['http://localhost:4200','https://bookshop-omega.vercel.a
 app.use(router);
 
 dbInit();
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
+app.listen(process.env.PORT || 3030 , () => console.log(`Server listening on port ${process.env.PORT}`))

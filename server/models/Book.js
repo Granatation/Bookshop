@@ -29,6 +29,10 @@ const bookSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Image URL required']
     },
+    sales: {
+        type: Number,
+        required: [true, 'Sales required']
+    },
     postCreator: {
         type: mongoose.Types.ObjectId,
         ref: 'User'

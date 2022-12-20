@@ -19,6 +19,7 @@ export class EditBookComponent implements OnInit {
   editBookForm!: FormGroup;
   book!: IBook;
   next = false;
+  sales = 0;
 
   constructor(private fb: FormBuilder, private bookService: BookService, private route: ActivatedRoute, private router: Router) { }
 
@@ -27,6 +28,7 @@ export class EditBookComponent implements OnInit {
     this.bookService.getOne(bookId).subscribe({
       next: (book) => {
         this.book = book;
+        this.sales = book.sales;
         this.editBookForm = this.fb.group({
           title: [book.title, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
           author: [book.author, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
@@ -47,7 +49,7 @@ export class EditBookComponent implements OnInit {
   editBookHandler() {
     if (this.editBookForm.invalid) { return; }
     const { title, author, language, price, availability, imageUrl, description } = this.editBookForm.value;
-    this.bookService.editBook(title!, author!, language!, description!, price!, availability!, imageUrl!, this.book._id)
+    this.bookService.editBook(title!, author!, language!, description!, price!, availability!, imageUrl!, this.sales, this.book._id)
       .subscribe({
         next: () => this.router.navigate([`/all-books/${this.book._id}`])
       });

@@ -25,6 +25,30 @@ h2 {
     border-radius: 10px;
 }
 
+a {
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 2rem;
+    color: black;
+    text-decoration: none;
+    background: black;
+    color: white;
+    font-size: 1rem;
+    width: 250px;
+    padding: 0.5rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.5s;
+}
+
+a:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
 @media only screen and (width<1038px) {
     #welcome-container {
         width: 692px;
