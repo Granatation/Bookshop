@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.bookService.getAllBooks().subscribe({
       next: (books) => {
-        this.allBooks = books
+        this.allBooks = books?.sort((a, b) => b.sales - a.sales).slice(0, 3);
       },
       error: (err) => {
         this.router.navigate(['/error', err.message])
