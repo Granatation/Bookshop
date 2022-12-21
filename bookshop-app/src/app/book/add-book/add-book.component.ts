@@ -42,7 +42,10 @@ export class AddBookComponent {
     const { title, author, language, price, availability, imageUrl, description } = this.addBookForm.value;
     this.bookService.addBook(title!, author!, language!, description!, price!, availability!, imageUrl!, this.sales)
       .subscribe({
-        next: () => this.router.navigate(['/all-books'])
+        next: () => this.router.navigate(['/all-books']),
+        error: (err) => {
+          this.router.navigate(['/error', err.message])
+        }
       });
   }
 }

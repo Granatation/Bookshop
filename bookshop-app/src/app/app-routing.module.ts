@@ -10,6 +10,8 @@ import { BookDetailComponent } from './book/book-detail/book-detail.component';
 import { DeleteBookComponent } from './book/delete-book/delete-book.component';
 import { EditBookComponent } from './book/edit-book/edit-book.component';
 import { HomeComponent } from './book/home/home.component';
+import { ErrorComponent } from './core/error/error.component';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { AuthActivate } from './shared/guards/auth.activate';
 
 const routes: Routes = [
@@ -77,6 +79,14 @@ const routes: Routes = [
     data: {
       loginRequired: true
     }
+  }, 
+  {
+    path: 'error/:message',
+    component: ErrorComponent,
+  }, 
+  {
+    path: '**',
+    component: PageNotFoundComponent,
   }
 
 ];

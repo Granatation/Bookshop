@@ -26,7 +26,10 @@ export class LoginComponent {
     const { email, password } = this.loginForm.value;
     this.authService.login(email!, password!)
       .subscribe({
-        next: () => this.router.navigate(['/all-books'])
+        next: () => this.router.navigate(['/all-books']),
+        error: (err) => {
+          this.router.navigate(['/error', err.message])
+        }
       });
   }
 }

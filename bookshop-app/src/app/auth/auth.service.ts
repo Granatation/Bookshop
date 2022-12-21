@@ -23,9 +23,7 @@ export class AuthService {
     return this.http.post<IUser>(`${environment.apiURL}/register`, { username, email, password, repass })
       .pipe(tap(user => {
         this.user = user as any as IError;
-        if (this.user.message) {
-          alert(this.user.message);
-        } else {
+        if (!this.user.message) {
           this.user = user as any;
           localStorage.setItem('user', this.user.accessToken);
         }
@@ -37,9 +35,7 @@ export class AuthService {
     return this.http.post<IUser>(`${environment.apiURL}/login`, { email, password })
       .pipe(tap(user => {
         this.user = user as any as IError;
-        if (this.user.message) {
-          alert(this.user.message);
-        } else {
+        if (!this.user.message) {
           this.user = user as any;
           localStorage.setItem('user', this.user.accessToken);
         }
@@ -54,11 +50,5 @@ export class AuthService {
 
   getUser(userId: string) {
     return this.http.get<IUser>(`${environment.apiURL}/user/${userId}`)
-      .pipe(tap(user => {
-        this.user = user as any as IError;
-        if (this.user.message) {
-          alert(this.user.message);
-        }
-      }))
   }
 }

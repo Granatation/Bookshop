@@ -51,7 +51,10 @@ export class EditBookComponent implements OnInit {
     const { title, author, language, price, availability, imageUrl, description } = this.editBookForm.value;
     this.bookService.editBook(title!, author!, language!, description!, price!, availability!, imageUrl!, this.sales, this.book._id)
       .subscribe({
-        next: () => this.router.navigate([`/all-books/${this.book._id}`])
+        next: () => this.router.navigate([`/all-books/${this.book._id}`]),
+        error: (err) => {
+          this.router.navigate(['/error', err.message])
+        }
       });
   }
 }

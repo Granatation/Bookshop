@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { IBook } from 'src/app/shared/interfaces/IBook';
 import { BookService } from 'src/app/book/book.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { BookService } from 'src/app/book/book.service';
 export class HomeComponent implements OnInit {
   allBooks: IBook[] | null = null;
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
     this.bookService.getAllBooks().subscribe({
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
         this.allBooks = books
       },
       error: (err) => {
-        alert(err.message)
+        this.router.navigate(['/error', err.message])
       }
     })
   }

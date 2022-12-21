@@ -15,7 +15,10 @@ export class DeleteBookComponent {
     const bookId = this.route.snapshot.params['bookId']
     this.bookService.deleteBook(bookId)
       .subscribe({
-        next: () => this.router.navigate([`/all-books`])
+        next: () => this.router.navigate([`/all-books`]),
+        error: (err) => {
+          this.router.navigate(['/error', err.message])
+        }
       });
   }
 

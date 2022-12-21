@@ -32,7 +32,10 @@ export class RegisterComponent {
     const { username, email, pass: { password, rePassword } = {} } = this.registerForm.value;
     this.authService.register(username!, email!, password!, rePassword!)
       .subscribe({
-        next: () => this.router.navigate(['/all-books'])
+        next: () => this.router.navigate(['/all-books']),
+        error: (err) => {
+          this.router.navigate(['/error', err.message])
+        }
       });
   }
 }

@@ -47,8 +47,14 @@ export class BookDetailComponent implements OnInit {
         this.authService.getUser(this.book.postCreator as any).subscribe({
           next: (user) => {
             this.isOwner = this.accessToken === user.accessToken ? true : false;
+          },
+          error: (err) => {
+            this.router.navigate(['/error', err.message])
           }
         })
+      },
+      error: (err) => {
+        this.router.navigate(['/error', err.message])
       }
     });
   }

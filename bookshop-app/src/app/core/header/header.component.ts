@@ -12,8 +12,6 @@ export class HeaderComponent {
     return this.authService.isLoggedIn;
   }
 
-  constructor(private authService: AuthService){
-
-  }
+  constructor(private authService: AuthService){ }
 
 }

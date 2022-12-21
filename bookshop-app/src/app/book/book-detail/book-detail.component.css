@@ -60,7 +60,8 @@ p:not(#description):not(.error) {
     overflow: auto;
 }
 
-button {
+button,
+a {
     display: block;
     font-family: Bitter;
     background: black;
@@ -91,7 +92,8 @@ h2 {
     text-align: center;
 }
 
-button:hover {
+button:hover,
+a:hover {
     cursor: pointer;
     transform: scale(1.05);
     opacity: 0.9;
