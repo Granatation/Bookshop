@@ -107,33 +107,32 @@ router.get('/all-books/:bookId/delete', async (req, res) => {
     }
 });
 
-// router.get('/all-landmarks/:landmarkId/visit', async (req, res) => {
-//     try {
-//         const landmark = await landmarkService.getOne(req.params.landmarkId);
-//         errorChecker(landmark);
+router.post('/all-books/:bookId/buy', async (req, res) => {
+    try {
+        const book = await bookService.getOne(req.params.bookId);
+        errorChecker(book);
 
-//         const user = await authService.getUser(req);
-//         errorChecker(user);
+        const { amount } = req.body;
 
-//         const visitorsArr = [...landmark.visitors, user._id];
-//         errorChecker(visitorsArr);
+        const updatedbook = await bookService.update(req.params.bookId, {
+            _id: book._id,
+            title: book.title,
+            author: book.author,
+            language: book.language,
+            description: book.description,
+            price: book.price,
+            availability: book.availability - Number(amount.amount),
+            imageUrl: book.imageUrl,
+            sales: book.sales + Number(amount.amount),
+            postCreator: book.postCreator,
 
-//         const updatedLandmark = await landmarkService.update(req.params.landmarkId, {
-//             _id: landmark._id,
-//             name: landmark.name,
-//             town: landmark.town,
-//             country: landmark.country,
-//             imageUrl: landmark.imageUrl,
-//             description: landmark.description,
-//             postedBy: landmark.postedBy,
-//             visitors: visitorsArr
-//         });
-//         errorChecker(updatedLandmark);
+        });
+        errorChecker(updatedbook);
 
-//         res.json(updatedLandmark);
-//     } catch (error) {
-//         req.json({ message: error.message });
-//     }
-// });
+        res.json(updatedbook);
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+});
 
 module.exports = router;

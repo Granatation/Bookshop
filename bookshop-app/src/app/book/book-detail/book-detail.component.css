@@ -45,12 +45,11 @@ img {
     margin-bottom: 20px;
 }
 
-p:not(#description) {
+p:not(#description):not(.error) {
     display: inline-block;
     margin: 0;
     font-size: 1.5rem;
     white-space: nowrap;
-    /* text-overflow: ellipsis; */
     max-width: 230px;
     max-height: 50px;
     overflow: auto;
@@ -61,7 +60,7 @@ p:not(#description) {
     overflow: auto;
 }
 
-a {
+button {
     display: block;
     font-family: Bitter;
     background: black;
@@ -69,7 +68,7 @@ a {
     text-decoration: none;
     color: white;
     width: 300px;
-    margin: 2rem 0 0 20px;
+    margin: 40px 0 0 20px;
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-radius: 100px;
@@ -92,8 +91,34 @@ h2 {
     text-align: center;
 }
 
-a:hover {
+button:hover {
     cursor: pointer;
     transform: scale(1.05);
     opacity: 0.9;
+}
+
+input {
+    border: none;
+    outline: none;
+    color: black;
+    font-family: Bitter;
+    background: rgba(255, 255, 255, .3);
+    font-size: 1rem;
+    margin-left: 20px;
+    padding: 1rem 0 1rem 2rem;
+    border-radius: 100px;
+    width: 268px;
+    transition: background-color .5s;
+}
+
+.error {
+    font-size: 18px;
+    color: rgb(200, 0, 0);
+    font-style: italic;
+    margin: 9px 0 0 25px;
+    overflow: visible;
+}
+
+.error+button {
+    margin-top: 9px;
 }

@@ -71,4 +71,14 @@ export class BookService {
       })
       );
   }
+
+  buy(amount: number, bookId: string) {
+    return this.http.post<IBook>(`${environment.apiURL}/all-books/${bookId}/buy`, { amount })
+      .pipe(tap(book => {
+        this.book = book as any as IError;
+        if (this.book.message) {
+          alert(this.book.message);
+        }
+      }))
+  }
 }

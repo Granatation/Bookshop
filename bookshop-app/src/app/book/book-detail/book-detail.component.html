@@ -24,7 +24,26 @@
                 <p>Price:&nbsp;</p>
                 <p>{{book.price}}$</p>
             </div>
-            <a *ngIf="!isOwner && isLoggedIn" [routerLink]="['/all-books',book._id,'buy']">Buy now</a>
+
+            <form *ngIf="!isOwner && isLoggedIn" [formGroup]="amountForm" method="post" (ngSubmit)="amountHandler()">
+                <input type="number" formControlName="amount" placeholder="Choose amount of books">
+                <ng-container *ngIf="amountForm.get('amount')?.touched">
+                    <p *ngIf="amountForm.get('amount')?.errors?.['strToNumValidator']" class="error">
+                        Amount must be a whole number!
+                    </p>
+                    <p *ngIf="amountForm.get('amount')?.errors?.['minNumberValidator']" class="error">
+                        Amount must be at least 1!
+                    </p>
+                    <p *ngIf="amountForm.get('amount')?.errors?.['wholeNumValidator']" class="error">
+                        Amount must be at least 1!
+                    </p>
+                    <p *ngIf="amountForm.get('amount')?.errors?.['amountValidator']" class="error">
+                        Amount must not be more than {{book.availability}}!
+                    </p>
+                </ng-container>
+                <button>Buy now</button>
+            </form>
+
             <a *ngIf="isOwner" [routerLink]="['/all-books',book._id,'edit']">Edit</a>
             <a *ngIf="isOwner" [routerLink]="['/all-books',book._id,'delete']">Delete</a>
         </div>

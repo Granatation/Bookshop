@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { IError } from 'src/app/shared/interfaces/IError';
 import { appEmailValidator, sameValueGroupValidator } from 'src/app/shared/validators';
 import { AuthService } from '../auth.service';
 
