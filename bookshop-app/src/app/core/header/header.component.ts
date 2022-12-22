@@ -13,6 +13,14 @@ export class HeaderComponent {
     return this.authService.isLoggedIn;
   }
 
+  next = true
+
+  handler() {
+    this.next = !this.next;
+    console.log(this.next);
+    
+  }
+
   constructor(private authService: AuthService) { }
 
 }

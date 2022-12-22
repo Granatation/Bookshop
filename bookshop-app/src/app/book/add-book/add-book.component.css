@@ -1,15 +1,18 @@
+.form-container {
+    margin: 4rem auto;
+    width: 500px;
+}
+
 form {
     width: 500px;
     color: black;
-    position: absolute;
-    right: 50%;
-    transform: translate(50%);
-    margin: 6% 0;
+    position: relative;
 }
 
 fieldset {
     background-color: rgba(255, 255, 255, .5);
     border: none;
+    margin: 0;
     border-radius: 10px;
 }
 
@@ -56,12 +59,6 @@ input {
     border-radius: 100px;
     width: 70%;
     transition: background-color .5s;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
 }
 
 #description {
@@ -126,4 +123,36 @@ input:focus,
 
 #previous {
     margin-bottom: 0;
+}
+
+@media only screen and (width<715px) {
+    form {
+        margin-top: 11rem;
+    }
+}
+
+@media only screen and (width<500px) {
+    .form-container {
+        margin: 4rem auto;
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+        color: black;
+        position: relative;
+    }
+
+    fieldset {
+        border-radius: 0;
+    }
+
+    fieldset::before {
+        content: '';
+        display: none;
+    }
+
+    input {
+        margin-right: 50%;
+    }
 }

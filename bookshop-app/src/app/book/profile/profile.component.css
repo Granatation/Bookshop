@@ -30,8 +30,22 @@ h1 {
     }
 }
 
-@media only screen and (width<692px) {
+@media only screen and (width<715px) {
     .all-books-container {
         width: 346px;
+        margin-top: 12rem;
+    }
+}
+
+@media only screen and (width<365px) {
+    .all-books-container {
+        width: 100%;
+        margin-top: 10rem;
+        border-radius: 0;
+    }
+
+    .detail-container {
+        display: block;
+        margin: 3rem auto;
     }
 }

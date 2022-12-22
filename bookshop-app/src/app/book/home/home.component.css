@@ -1,17 +1,17 @@
 #welcome-container {
     width: 1038px;
-    position: absolute;
-    right: 50%;
-    margin-top: 4rem;
-    transform: translate(50%);
+    display: block;
+    padding-bottom: 1rem;
+    margin: 4rem auto;
     background-color: rgba(255, 255, 255, .2);
     border-radius: 20px;
 }
 
 h1,
 h2 {
+    margin: 0;
+    padding-top: 2rem;
     text-align: center;
-    margin: 2rem 0 0 0;
     color: black;
 }
 
@@ -29,7 +29,6 @@ a {
     display: block;
     text-align: center;
     margin: auto;
-    margin-bottom: 2rem;
     color: black;
     text-decoration: none;
     background: black;
@@ -55,8 +54,22 @@ a:hover {
     }
 }
 
-@media only screen and (width<692px) {
+@media only screen and (width<715px) {
     #welcome-container {
         width: 346px;
+        margin-top: 12rem;
+    }
+}
+
+@media only screen and (width<365px) {
+    #welcome-container {
+        width: 100%;
+        margin-top: 10rem;
+        border-radius: 0;
+    }
+
+    .content {
+        display: block;
+        margin: 3rem auto;
     }
 }

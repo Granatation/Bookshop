@@ -6,6 +6,10 @@ header {
     border-bottom: 2px solid white;
 }
 
+.more {
+    display: none;
+}
+
 ul {
     display: flex;
     margin: auto;
@@ -27,8 +31,7 @@ a {
 
 .active::after,
 a:hover::after,
-.home-active:after
-{
+.home-active:after {
     content: '';
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
@@ -37,4 +40,64 @@ a:hover::after,
     bottom: -13px;
     right: 50%;
     transform: translate(50%);
+}
+
+@media only screen and (width<715px) {
+    header ul {
+        /* display: none; */
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .show{
+        display: flex;
+    }
+
+    .noshow{
+        display: none;
+    }
+
+    .more {
+        display: block;
+        margin: auto;
+        background-color: black;
+        color: white;
+        height: 35px;
+        width: 40px;
+        margin-top: 7px;
+        margin-bottom: 7px;
+        font-size: 25px;
+        border: 1px solid white;
+        border-radius: 5px;
+        transition: 0.5s;
+    }
+
+    .more:hover {
+        cursor: pointer;
+        background-color: white;
+        color: black;
+
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .active::after,
+    a:hover::after,
+    .home-active:after {
+        content: '';
+        border-left: none;
+        border-right: none;
+    }
+
+    li {
+        width: 100%;
+        border-bottom: 1px solid white;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 3px;
+        background-color: black;
+    }
 }

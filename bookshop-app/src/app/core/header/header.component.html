@@ -1,6 +1,7 @@
 <header>
     <nav>
-        <ul *ngIf="isLoggedIn">
+        <button (click)="handler()" class="more"><i class="fa-solid fa-bars"></i></button>
+        <ul *ngIf="isLoggedIn" [ngClass]="next === true ? 'show': 'noshow'">
             <li>
                 <a routerLink="/home" routerLinkActive="active">Home</a>
             </li>
@@ -18,7 +19,7 @@
             </li>
         </ul>
 
-        <ul *ngIf="!isLoggedIn">
+        <ul *ngIf="!isLoggedIn" [ngClass]="next === true ? 'show': 'noshow'">
             <li>
                 <a routerLink="/home" routerLinkActive="active">Home</a>
             </li>

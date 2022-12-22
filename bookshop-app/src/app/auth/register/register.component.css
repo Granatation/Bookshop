@@ -99,3 +99,32 @@ input:focus{
     text-align: center;
     margin:2rem 0 1.2rem 0;
 }
+
+@media only screen and (width<715px) {
+    form {
+        margin-top: 11rem;
+    }
+}
+
+@media only screen and (width<500px) {
+
+    form {
+        margin-top: 10rem;
+        width: 100%;
+        color: black;
+        position: relative;
+    }
+
+    fieldset {
+        border-radius: 0;
+    }
+
+    fieldset::before {
+        content: '';
+        display: none;
+    }
+
+    input {
+        margin-right: 50%;
+    }
+}

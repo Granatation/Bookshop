@@ -127,3 +127,35 @@ input:focus,
 #previous {
     margin-bottom: 0;
 }
+
+@media only screen and (width<715px) {
+    form {
+        margin-top: 11rem;
+    }
+}
+
+@media only screen and (width<500px) {
+    .form-container {
+        margin: 4rem auto;
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+        color: black;
+        position: relative;
+    }
+
+    fieldset {
+        border-radius: 0;
+    }
+
+    fieldset::before {
+        content: '';
+        display: none;
+    }
+
+    input {
+        margin-right: 50%;
+    }
+}

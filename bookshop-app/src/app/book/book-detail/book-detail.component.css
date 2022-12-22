@@ -124,3 +124,75 @@ input {
 .error+button {
     margin-top: 9px;
 }
+
+@media only screen and (width < 1024px) {
+    .container {
+        width: 500px;
+        grid-template-areas:
+            'div'
+            'div'
+            'div';
+        grid-template-rows: 550px auto auto;
+    }
+
+    .image-container {
+        margin: 1rem 2rem;
+        border: 2px black solid;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+    }
+
+    .book {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #description {
+        max-width: 500px;
+        overflow: auto;
+    }
+
+    .description-container {
+        border: 2px black solid;
+        width: 450px;
+        margin: 25px;
+        border-bottom: 0;
+        border-left: 0;
+        border-right: 0;
+    }
+
+    h2 {
+        text-align: center;
+    }
+}
+
+@media only screen and (width<715px) {
+    .container {
+        margin-top: 11rem;
+    }
+}
+
+@media only screen and (width<500px) {
+    .container {
+        width: 100%;
+        border-radius: 0;
+        grid-template-columns: 100%;
+
+    }
+
+    .image-container {
+        width: 100%;
+    }
+
+    .description-container {
+        width: 100%;
+    }
+
+    button,
+    a {
+        display: block;
+        margin: 2rem auto;
+        width: 100%;
+    }
+}
