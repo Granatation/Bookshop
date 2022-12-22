@@ -178,19 +178,26 @@ input {
         width: 100%;
         border-radius: 0;
         grid-template-columns: 100%;
-
     }
 
     .image-container {
         width: 100%;
+        margin-left: 0;
     }
 
     .description-container {
         width: 100%;
+        margin-left: 0;
+    }
+
+    img {
+        object-fit: contain;
+        max-width: 300px;
+        max-height: 430px;
     }
 
     button,
-    a {
+    a,input {
         display: block;
         margin: 2rem auto;
         width: 100%;
