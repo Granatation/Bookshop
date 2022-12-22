@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
+import { ProfileComponent } from './book/profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { AllBooksComponent } from './book/all-books/all-books.component';
@@ -79,11 +80,19 @@ const routes: Routes = [
     data: {
       loginRequired: true
     }
-  }, 
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthActivate],
+    data: {
+      loginRequired: true
+    }
+  },
   {
     path: 'error/:message',
     component: ErrorComponent,
-  }, 
+  },
   {
     path: '**',
     component: PageNotFoundComponent,

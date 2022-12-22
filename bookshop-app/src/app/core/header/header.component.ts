@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
+
 import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
@@ -12,6 +13,6 @@ export class HeaderComponent {
     return this.authService.isLoggedIn;
   }
 
-  constructor(private authService: AuthService){ }
+  constructor(private authService: AuthService) { }
 
 }

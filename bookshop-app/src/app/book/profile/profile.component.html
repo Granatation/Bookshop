@@ -1,0 +1,6 @@
+<div class="all-books-container">
+    <h1>{{username}}'s books for sale:</h1>
+    <div *ngFor="let book of allBooks" class="detail-container">
+        <app-book-list-item [book]="book"></app-book-list-item>
+    </div>
+</div>

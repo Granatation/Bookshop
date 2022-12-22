@@ -2,7 +2,6 @@ const router = require('express').Router();
 
 const bookService = require('../services/bookService');
 const authService = require('../services/authService');
-// const Book = require('../models/Book');
 const errorChecker = require('../utils/errorChecker');
 
 router.post('/add-book', async (req, res) => {

@@ -1,13 +1,16 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
+const { SECRET } = require('../config/env')
+// require('dotenv').config();
 
 exports.create = (data) => User.create(data);
 
 exports.update = (userId, userData) => User.updateOne({ _id: userId }, { $set: userData });
 
-exports.getOne = (userId) => User.findById(userId);
+exports.getOneById = (userId) => User.findById(userId);
+
+exports.getOneByToken = (accessToken) => User.findOne({ accessToken: accessToken }).lean()
 
 exports.login = async (email, password) => {
     try {
@@ -33,7 +36,7 @@ exports.createToken = (email) => {
     try {
         const payload = { email };
         return new Promise((resolve, reject) => {
-            jwt.sign(payload, process.env.SECRET, (err, decodedToken) => {
+            jwt.sign(payload, SECRET, (err, decodedToken) => {
                 if (err) {
                     return reject(err);
                 }
@@ -48,7 +51,7 @@ exports.createToken = (email) => {
 exports.getUser = async (req) => {
     try {
         const token = req.headers['x-authorization'];
-        const decoded = jwt.verify(token, process.env.SECRET);
+        const decoded = jwt.verify(token, SECRET);
         const email = decoded.email;
         const user = await User.findOne({ email }).lean();
 

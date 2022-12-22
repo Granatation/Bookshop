@@ -11,13 +11,16 @@
                 <a routerLink="/add-book" routerLinkActive="active">Add Book</a>
             </li>
             <li>
+                <a routerLink="/profile" routerLinkActive="active">Profile</a>
+            </li>
+            <li>
                 <a routerLink="/logout" routerLinkActive="active">Logout</a>
             </li>
         </ul>
 
         <ul *ngIf="!isLoggedIn">
             <li>
-                <a routerLink="/home" routerLinkActive="active" >Home</a>
+                <a routerLink="/home" routerLinkActive="active">Home</a>
             </li>
             <li>
                 <a routerLink="/all-books" routerLinkActive="active">All Books</a>

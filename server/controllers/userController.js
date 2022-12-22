@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
 const authService = require('../services/authService');
-// const landmarkService = require('../services/landmarkService');
 
 const errorChecker = require('../utils/errorChecker');
 
@@ -62,35 +61,24 @@ router.post('/register', async (req, res) => {
 
 router.get('/user/:userId', async (req, res) => {
     try {
-        const user = await authService.getOne(req.params.userId);
+        const user = await authService.getOneById(req.params.userId);
         errorChecker(user);
 
         res.json(user);
     } catch (error) {
-        req.json({ message: error.message });
+        res.json({ message: error.message });
     }
-})
+});
 
-router.get('/my-profile', async (req, res) => {
+router.get('/profile/:accessToken', async (req, res) => {
     try {
-        const user = await authService.getUser(req);
+        const user = await authService.getOneByToken(req.params.accessToken);
         errorChecker(user);
 
-        const landmarkIds = user.landmarks;
-
-        let landmarks = [];
-
-        for (const landmarkId of landmarkIds) {
-            const landmark = await landmarkService.getOne(landmarkId);
-            errorChecker(landmark);
-            landmarks.push(landmark);
-        }
-
-        res.json(landmarks);
+        res.json({ username: user.username, books: user.books });
     } catch (error) {
-        req.json({ message: error.message });
+        res.json({ message: error.message });
     }
-
-});
+})
 
 module.exports = router;

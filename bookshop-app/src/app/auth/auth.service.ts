@@ -51,4 +51,8 @@ export class AuthService {
   getUser(userId: string) {
     return this.http.get<IUser>(`${environment.apiURL}/user/${userId}`)
   }
+
+  getUserByToken(accessToken: string) {
+    return this.http.get<IUser>(`${environment.apiURL}/profile/${accessToken}`)
+  }
 }

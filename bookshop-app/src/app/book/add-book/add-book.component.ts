@@ -7,6 +7,7 @@ import { strToNumValidator } from 'src/app/shared/validators/string-to-number-va
 import { minNumberValidator } from 'src/app/shared/validators/min-number-validator';
 import { maxNumberValidator } from 'src/app/shared/validators/max-number-validator';
 import { wholeNumValidator } from 'src/app/shared/validators/whole-number-validator';
+import { imageUrlValidator } from 'src/app/shared/validators/imageUrl-validator';
 
 @Component({
   selector: 'app-add-book',
@@ -25,7 +26,7 @@ export class AddBookComponent {
     description: ['', [Validators.required, Validators.minLength(50), Validators.maxLength(1000)]],
     price: ['', [Validators.required, strToNumValidator(), minNumberValidator(), maxNumberValidator()]],
     availability: ['', [Validators.required, strToNumValidator(), minNumberValidator(), maxNumberValidator(), wholeNumValidator()]],
-    imageUrl: ['', [Validators.required]],
+    imageUrl: ['', [Validators.required, imageUrlValidator()]],
   });
 
   constructor(private fb: FormBuilder, private bookService: BookService, private router: Router) {
