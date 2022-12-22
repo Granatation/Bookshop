@@ -121,6 +121,9 @@
                 <p *ngIf="editBookForm.get('imageUrl')?.errors?.['required']" class="error">
                     Image URL is required!
                 </p>
+                <p *ngIf="editBookForm.get('imageUrl')?.errors?.['imageUrlValidator']" class="error">
+                    Must be a valid image URL!
+                </p>
             </ng-container>
 
             <button id="previous" (click)="nextHandler()">Previous</button>

@@ -8,6 +8,7 @@ import { minNumberValidator } from 'src/app/shared/validators/min-number-validat
 import { maxNumberValidator } from 'src/app/shared/validators/max-number-validator';
 import { wholeNumValidator } from 'src/app/shared/validators/whole-number-validator';
 import { IBook } from 'src/app/shared/interfaces/IBook';
+import { imageUrlValidator } from 'src/app/shared/validators/imageUrl-validator';
 
 @Component({
   selector: 'app-edit-book',
@@ -36,7 +37,7 @@ export class EditBookComponent implements OnInit {
           description: [book.description, [Validators.required, Validators.minLength(50), Validators.maxLength(1000)]],
           price: [book.price, [Validators.required, strToNumValidator(), minNumberValidator(), maxNumberValidator()]],
           availability: [book.availability, [Validators.required, strToNumValidator(), minNumberValidator(), maxNumberValidator(), wholeNumValidator()]],
-          imageUrl: [book.imageUrl, [Validators.required]],
+          imageUrl: [book.imageUrl, [Validators.required,imageUrlValidator()]],
         });
       }
     });
