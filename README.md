@@ -1,5 +1,4 @@
 # Bookshop
-Simple app created mainly with Angular.
 
 ## General information
 * The main purpose of this application is to buy and sale books.
