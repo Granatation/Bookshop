@@ -42,8 +42,7 @@ export class AuthService {
           this.user = user as any;
           localStorage.setItem('user', this.user.accessToken);
         } else {
-          // alert(this.user.message)
-          this.router.navigate(['/error', this.user.message])
+          alert(this.user.message)
         }
       }));
   }
