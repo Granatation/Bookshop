@@ -50,9 +50,23 @@ export class AuthService {
 
   getUser(userId: string) {
     return this.http.get<IUser>(`${environment.apiURL}/user/${userId}`)
+    .pipe(tap(user => {
+      this.user = user as any as IError;
+      if (this.user.message) {
+        alert(this.user.message)
+      }
+    })
+    );
   }
 
   getUserByToken(accessToken: string) {
     return this.http.get<IUser>(`${environment.apiURL}/profile/${accessToken}`)
+    .pipe(tap(user => {
+      this.user = user as any as IError;
+      if (this.user.message) {
+        alert(this.user.message)
+      }
+    })
+    );
   }
 }
