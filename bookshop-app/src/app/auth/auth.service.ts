@@ -5,6 +5,7 @@ import { tap } from 'rxjs';
 import { IUser } from '../shared/interfaces/IUser';
 import { IError } from '../shared/interfaces/IError';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
 
   private user: any | IError | IUser;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   get isLoggedIn() {
     return localStorage.getItem('user') ? true : false;
@@ -27,7 +28,7 @@ export class AuthService {
           this.user = user as any;
           localStorage.setItem('user', this.user.accessToken);
         } else {
-          alert(this.user.message)
+          this.router.navigate(['/error', this.user.message])
         }
       })
       );
