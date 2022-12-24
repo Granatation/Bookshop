@@ -20,7 +20,7 @@ export class AllBooksComponent implements OnInit {
         this.allBooks = books
       },
       error: (err) => {
-        this.router.navigate(['/error', err.message])
+        // this.router.navigate(['/error', err.message])
       }
     })
   }

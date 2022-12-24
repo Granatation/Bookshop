@@ -10,6 +10,7 @@ import { EditBookComponent } from './edit-book/edit-book.component';
 import { DeleteBookComponent } from './delete-book/delete-book.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ProfileComponent } from './profile/profile.component';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class BookModule { }

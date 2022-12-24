@@ -1,5 +1,6 @@
 <div class="all-books-container">
     <h1>All books</h1>
+    <app-loader *ngIf="!allBooks"></app-loader>
     <div *ngFor="let book of allBooks" class="detail-container">
         <app-book-list-item [book]="book"></app-book-list-item>
     </div>

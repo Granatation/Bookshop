@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { BookModule } from './book/book.module';
 import { CoreModule } from './core/core.module';
 import { AuthActivate } from './shared/guards/auth.activate';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthActivate } from './shared/guards/auth.activate';
     HttpClientModule,
     AppRoutingModule,
     CoreModule,
-    BookModule
+    BookModule,
+    BrowserAnimationsModule,
   ],
   providers: [appInterceptorProvider, AuthActivate],
   bootstrap: [AppComponent]
