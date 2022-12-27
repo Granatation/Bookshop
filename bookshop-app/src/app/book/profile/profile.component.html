@@ -1,6 +1,8 @@
 <div class="all-books-container">
-    <h1>{{username}}'s books for sale:</h1>
+    <app-loader *ngIf="allBooks.length==0 && message==false && !username"></app-loader>
+    <h1 *ngIf="username">{{username}}'s books for sale:</h1>
     <div *ngFor="let book of allBooks" class="detail-container">
         <app-book-list-item [book]="book"></app-book-list-item>
     </div>
+    <h2 *ngIf="message == true">No books!</h2>
 </div>

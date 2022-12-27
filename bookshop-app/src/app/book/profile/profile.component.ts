@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
 
   allBooks: IBook[] = []
   username!: string;
+  message = false;
   accessToken = localStorage.getItem('user') as string;
 
   constructor(private authService: AuthService, private bookService: BookService, private router: Router) { }
@@ -22,8 +23,6 @@ export class ProfileComponent implements OnInit {
       next: ({ username, books }) => {
         this.username = username;
         for (const bookId of books) {
-          console.log(bookId);
-
           this.bookService.getOne(bookId as any as string).subscribe({
             next: (book) => {
               let arr = this.allBooks;
@@ -35,6 +34,13 @@ export class ProfileComponent implements OnInit {
             }
           })
         }
+
+        if (books.length === 0) {
+          this.message = true;
+        }
+      },
+      error: (err) => {
+        this.router.navigate(['/error', err.message])
       }
     })
   }

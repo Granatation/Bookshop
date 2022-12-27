@@ -8,7 +8,8 @@ import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
   styleUrls: ['./loader.component.css']
 })
 export class LoaderComponent {
-  color: ThemePalette = 'primary';
-  mode: ProgressSpinnerMode = 'determinate';
-  value = 50;
+  // color: ThemePalette = 'primary';
+  // mode: ProgressSpinnerMode = 'determinate';
+  // value = 50;
+  uploading = true
 }
