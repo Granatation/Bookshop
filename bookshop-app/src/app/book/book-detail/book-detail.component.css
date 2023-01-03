@@ -171,10 +171,9 @@ input {
     }
 }
 
-@media only screen and (width<500px) {
+@media only screen and (width<518px) {
     .container {
-        width: 100%;
-        border-radius: 0;
+        width: 90%;
         grid-template-columns: 100%;
     }
 
@@ -184,8 +183,8 @@ input {
     }
 
     .description-container {
-        width: 100%;
-        margin-left: 0;
+        width: 90%;
+        margin-left: 5%;
     }
 
     img {
