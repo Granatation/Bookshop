@@ -106,25 +106,16 @@ input:focus{
     }
 }
 
-@media only screen and (width<500px) {
+@media only screen and (width<515px) {
 
     form {
         margin-top: 10rem;
-        width: 100%;
+        width: 80%;
         color: black;
-        position: relative;
-    }
-
-    fieldset {
-        border-radius: 0;
-    }
-
-    fieldset::before {
-        content: '';
-        display: none;
     }
 
     input {
-        margin-right: 50%;
+        width: 60%;
+        margin-left: 12%;
     }
 }

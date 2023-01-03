@@ -90,13 +90,13 @@ button:hover:enabled {
     opacity: 0.9;
 }
 
-input:focus{
+input:focus {
     background-color: white;
 }
 
-.question{
+.question {
     text-align: center;
-    margin:2rem 0 1.2rem 0;
+    margin: 2rem 0 1.2rem 0;
 }
 
 @media only screen and (width<715px) {
@@ -105,25 +105,17 @@ input:focus{
     }
 }
 
-@media only screen and (width<500px) {
+@media only screen and (width<515px) {
 
     form {
-        margin-top: 10rem;
-        width: 100%;
+        display: block;
+        margin: 10rem auto 0 auto;
+        width: 80%;
         color: black;
-        position: relative;
     }
 
-    fieldset {
-        border-radius: 0;
-    }
-
-    fieldset::before {
-        content: '';
-        display: none;
-    }
-
-    input {
-        margin-right: 50%;
+    input{
+        width: 60%;
+        margin-left: 12%;
     }
 }

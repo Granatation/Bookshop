@@ -131,10 +131,10 @@ input:focus,
     }
 }
 
-@media only screen and (width<500px) {
+@media only screen and (width<515px) {
     .form-container {
         margin: 4rem auto;
-        width: 100%;
+        width: 80%;
     }
 
     form {
@@ -143,16 +143,9 @@ input:focus,
         position: relative;
     }
 
-    fieldset {
-        border-radius: 0;
-    }
-
-    fieldset::before {
-        content: '';
-        display: none;
-    }
-
-    input {
-        margin-right: 50%;
+    input,
+    #description {
+        width: 60%;
+        margin-left: 12%;
     }
 }
