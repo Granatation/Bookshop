@@ -178,8 +178,8 @@ input {
     }
 
     .image-container {
-        width: 100%;
-        margin-left: 0;
+        width: 90%;
+        margin-left: 5%;
     }
 
     .description-container {
@@ -194,9 +194,28 @@ input {
     }
 
     button,
-    a,input {
+    a,
+    input {
         display: block;
-        margin: 2rem auto;
+        margin: 2rem auto 0 auto;
         width: 100%;
+    }
+
+    input {
+        width: 90%;
+        padding-left: 10%;
+    }
+
+    .error {
+        text-align: center;
+        font-size: 15px;
+        color: rgb(200, 0, 0);
+        font-style: italic;
+        margin: 9px 0 0 0;
+        overflow: visible;
+    }
+
+    .error+button {
+        margin-top: 5px;
     }
 }
