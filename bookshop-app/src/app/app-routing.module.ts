@@ -22,72 +22,12 @@ const routes: Routes = [
     redirectTo: '/home'
   },
   {
-    path: 'home',
-    component: HomeComponent
+    path: '',
+    loadChildren: () => import('./book/book.module').then(m => m.BookModule)
   },
   {
-    path: 'register',
-    component: RegisterComponent,
-    canActivate: [AuthActivate],
-    data: {
-      loginRequired: false
-    }
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    canActivate: [AuthActivate],
-    data: {
-      loginRequired: false
-    }
-  },
-  {
-    path: 'logout',
-    component: LogoutComponent,
-    canActivate: [AuthActivate],
-    data: {
-      loginRequired: true
-    }
-  },
-  {
-    path: 'add-book',
-    component: AddBookComponent,
-    canActivate: [AuthActivate],
-    data: {
-      loginRequired: true
-    }
-  },
-  {
-    path: 'all-books',
-    component: AllBooksComponent,
-  },
-  {
-    path: 'all-books/:bookId',
-    component: BookDetailComponent,
-  },
-  {
-    path: 'all-books/:bookId/edit',
-    component: EditBookComponent,
-    canActivate: [AuthActivate],
-    data: {
-      loginRequired: true
-    }
-  },
-  {
-    path: 'all-books/:bookId/delete',
-    component: DeleteBookComponent,
-    canActivate: [AuthActivate],
-    data: {
-      loginRequired: true
-    }
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [AuthActivate],
-    data: {
-      loginRequired: true
-    }
+    path: '',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'error/:message',

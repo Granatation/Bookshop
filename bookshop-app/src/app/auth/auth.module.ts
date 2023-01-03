@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AuthRoutingModule } from './auth-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LogoutComponent } from './logout/logout.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    AuthRoutingModule
   ],
   exports: [
     RegisterComponent,

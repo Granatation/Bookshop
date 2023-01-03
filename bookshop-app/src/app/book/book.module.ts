@@ -11,6 +11,7 @@ import { DeleteBookComponent } from './delete-book/delete-book.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
+import { BookRoutingModule } from './book-routing.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SharedModule } from '../shared/shared.module';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    BookRoutingModule
   ]
 })
 export class BookModule { }
