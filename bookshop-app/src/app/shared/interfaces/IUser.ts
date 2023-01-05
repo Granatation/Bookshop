@@ -6,5 +6,6 @@ export interface IUser {
     password: string;
     accessToken: string;
     _id: string;
-    books: IBook[]
+    booksForSale: IBook[];
+    booksInCart: IBook[];
 }

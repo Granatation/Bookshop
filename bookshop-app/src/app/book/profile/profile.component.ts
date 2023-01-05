@@ -20,9 +20,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.getUserByToken(this.accessToken).subscribe({
-      next: ({ username, books }) => {
+      next: ({ username, booksForSale, booksInCart }) => {
         this.username = username;
-        for (const bookId of books) {
+        for (const bookId of booksForSale) {
           this.bookService.getOne(bookId as any as string).subscribe({
             next: (book) => {
               let arr = this.allBooks;
@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
           })
         }
 
-        if (books.length === 0) {
+        if (booksForSale.length === 0) {
           this.message = true;
         }
       },

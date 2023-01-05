@@ -18,7 +18,11 @@ const userSchema = new mongoose.Schema({
     accessToken: {
         type: String
     },
-    books: [{
+    booksForSale: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Book'
+    }],
+    booksInCart: [{
         type: mongoose.Types.ObjectId,
         ref: 'Book'
     }]
