@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-require('dotenv').config();
+const {SALT_ROUNDS}=require('../config/env')
+// require('dotenv').config();
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -29,7 +30,7 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.pre('save', function (next) {
-    bcrypt.hash(this.password, process.env.SALT_ROUNDS)
+    bcrypt.hash(this.password, SALT_ROUNDS)
         .then(hashedPass => {
             this.password = hashedPass;
 
