@@ -75,7 +75,7 @@ router.get('/profile/:accessToken', async (req, res) => {
         const user = await authService.getOneByToken(req.params.accessToken);
         errorChecker(user);
 
-        res.json({ username: user.username, books: user.booksForSale });
+        res.json({ username: user.username, booksForSale: user.booksForSale });
     } catch (error) {
         res.json({ message: error.message });
     }

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const {SALT_ROUNDS}=require('../config/env')
+const { SALT_ROUNDS } = require('../config/env');
 // require('dotenv').config();
 
 const userSchema = new mongoose.Schema({

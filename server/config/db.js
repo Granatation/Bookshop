@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { DB_QUERYSTRING } = require('../config/env')
+const { DB_QUERYSTRING } = require('../config/env');
 // require('dotenv').config();
 
 exports.dbInit = () => {
