@@ -26,7 +26,8 @@ router.post('/add-book', async (req, res) => {
             accessToken: user.accessToken,
             email: user.email,
             password: user.password,
-            books: bookArr
+            booksForSale: bookArr,
+            booksInCart: user.booksInCart
         });
         errorChecker(updatedUser);
 
@@ -96,7 +97,8 @@ router.get('/all-books/:bookId/delete', async (req, res) => {
             email: user.email,
             password: user.password,
             accessToken: user.accessToken,
-            books: bookArr
+            booksForSale: bookArr,
+            booksInCart: user.booksInCart
         });
         errorChecker(updatedUser);
 

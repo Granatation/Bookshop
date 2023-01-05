@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.getUserByToken(this.accessToken).subscribe({
-      next: ({ username, booksForSale, booksInCart }) => {
+      next: ({ username, booksForSale}) => {
         this.username = username;
         for (const bookId of booksForSale) {
           this.bookService.getOne(bookId as any as string).subscribe({
