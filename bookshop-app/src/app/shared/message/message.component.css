@@ -1,0 +1,19 @@
+div {
+    width: 250px;
+    height: 100px;
+    position: absolute;
+    right: 5%;
+    color: white;
+    margin-top: 5rem;
+    background-color: rgba(113, 112, 112, 0.7);
+    border-radius: 20px;
+    z-index: 1;
+}
+
+p {
+    text-align: center;
+    margin:38px 0 ;
+text-transform: uppercase;
+font-weight: bold;
+letter-spacing: 1px;
+}

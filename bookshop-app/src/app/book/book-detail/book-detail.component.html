@@ -1,9 +1,10 @@
 <div id="container" *ngIf="book">
+    <app-message *ngIf="message" [message]="message"></app-message>
     <div class="container">
         <div class="image-container">
             <img src={{book.imageUrl}} alt="">
         </div>
-        
+
         <div class="book">
             <div>
                 <p>Title:&nbsp;</p>

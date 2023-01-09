@@ -20,6 +20,7 @@ export class BookDetailComponent implements OnInit {
   book!: IBook;
   accessToken: string | null = localStorage.getItem('user');
   isOwner = false;
+  message: string | null = null;
   isLoggedIn = this.authService.isLoggedIn;
   amountForm!: FormGroup;
 
@@ -28,6 +29,11 @@ export class BookDetailComponent implements OnInit {
     private bookService: BookService, private authService: AuthService) { }
 
   amountHandler() {
+    this.message = 'book added to cart';
+
+    setTimeout(() => {
+      this.message = null;
+    }, 5000)
     if (this.amountForm.invalid) { return; }
     const amount = this.amountForm.value;
     this.bookService.buy(amount, this.book._id)
