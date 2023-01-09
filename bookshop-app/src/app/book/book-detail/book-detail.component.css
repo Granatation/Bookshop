@@ -41,16 +41,16 @@ img {
 
 .book div {
     margin-bottom: 20px;
+    display: flex;
 }
 
 p:not(#description):not(.error) {
     display: inline-block;
     margin: 0;
     font-size: 1.5rem;
-    white-space: nowrap;
+    word-wrap: break-word;
     max-width: 230px;
-    max-height: 50px;
-    overflow: auto;
+
 }
 
 #description {
